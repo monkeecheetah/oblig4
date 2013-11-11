@@ -7,11 +7,11 @@ public class Maanedskort extends Reisekort
     private static int antallSolgte = 0;
     private static int sumAlleMånedskort = 0;
 
-	public Maanedskort(int p, int innskudd)
+	public Maanedskort()
 	{
-		super(p);
+		super(MÅNEDSPRIS);
         antallSolgte++;
-        sumAlleMånedskort += innskudd;
+        sumAlleMånedskort += MÅNEDSPRIS;
 	}
 
 	public static int getSumAlleMånedskort()

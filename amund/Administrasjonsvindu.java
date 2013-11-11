@@ -12,7 +12,7 @@ public class Administrasjonsvindu extends JFrame implements ActionListener
 	{
 		super("ADMINISTRASJON");
 		salgsinfoKnapp = new JButton("Salgsinformasjon");
-		utskrift = new JTextArea(40, 20);
+		utskrift = new JTextArea(8, 15);
 		utskrift.setEditable(false);
 
 		salgsinfoKnapp.addActionListener(this);
@@ -22,7 +22,7 @@ public class Administrasjonsvindu extends JFrame implements ActionListener
 		c.add(salgsinfoKnapp);
 		c.add(utskrift);
 
-		setSize(100, 200);
+		setSize(200, 200);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}

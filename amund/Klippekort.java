@@ -2,15 +2,15 @@ import java.util.Calendar;
 
 public class Klippekort extends Reisekort
 {
-    public static final int PRIS_PER_REISE = 28;
+    public final static int PRIS_PER_REISE = 28;
     private int saldo;
 
     private static int antallSolgte = 0;
     private static int sumAlleKlippekort = 0;
 
-    public Klippekort(int p, int innskudd)
+    public Klippekort(int innskudd)
     {
-        super(p);
+        super(PRIS_PER_REISE);
         saldo = innskudd;
         antallSolgte++;
         sumAlleKlippekort += innskudd;

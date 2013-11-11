@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 public class Kontrollvindu extends JFrame
 {
     private JTextField kortIdFelt;
@@ -13,7 +14,7 @@ public class Kontrollvindu extends JFrame
     {
         super("BILLETT-KONTROLL");
         kortIdFelt = new JTextField(6);
-        display = new JTextArea(40, 20);
+        display = new JTextArea(10, 25);
         kontroll = new JButton("Billett-kontroll");
         kortsystem = r;
 
@@ -27,7 +28,7 @@ public class Kontrollvindu extends JFrame
         c.add(kontroll);
         c.add(display);
 
-        setSize(100, 200);
+        setSize(325, 230);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -49,7 +50,7 @@ public class Kontrollvindu extends JFrame
                 {
                     display.setText( "\n\n\nBetalt kr. " + klippekortet.getPris() + ",-\n" +
                                         "Saldo: kr. " + klippekortet.getSaldo() + ",-\n" +
-                                        "Gyldig til " + klippekortet.getUtløpstidspunkt() );
+                                        "Gyldig til " + klippekortet.gyldigTil() );
                 }
                 else
                 {
@@ -59,11 +60,9 @@ public class Kontrollvindu extends JFrame
             }
             else if (kortet instanceof Dagskort)
             {
-                Dagskort dagskortet = (Dagskort) kortet;
-
-                if ( dagskortet.gyldig() )
+                if ( kortet.gyldig() )
                 {
-                    display.setText( "Gyldig til " + dagskortet.getUtløpstidspunkt() );
+                    display.setText( "\n\n\nGyldig til " + kortet.gyldigTil() );
                 }
                 else
                 {
@@ -72,11 +71,9 @@ public class Kontrollvindu extends JFrame
             }
             else if (kortet instanceof Maanedskort)
             {
-                Maanedskort maanedskortet = (Maanedskort) kortet;
-
-                if ( maanedskortet.gyldig() )
+                if ( kortet.gyldig() )
                 {
-                    display.setText( "Gyldig til " + maanedskortet.getUtløpstidspunkt() );
+                    display.setText( "\n\n\nGyldig til " + kortet.gyldigTil() );
                 }
                 else
                 {
@@ -98,7 +95,6 @@ public class Kontrollvindu extends JFrame
         {
             kontrollerReisekort();
         }
-
     }
 
 }  // end of class Kontrollvindu

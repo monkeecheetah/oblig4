@@ -7,11 +7,11 @@ public class Dagskort extends Reisekort
     private static int antallSolgte = 0;
     private static int sumAlleDagskort = 0;
 
-	public Dagskort(int p, int innskudd)
+	public Dagskort()
 	{
-		super(p);
+		super(DAGSPRIS);
         antallSolgte++;
-        sumAlleDagskort += innskudd;
+        sumAlleDagskort += DAGSPRIS;
 	}
 
 	public static int getSumAlleDagskort()

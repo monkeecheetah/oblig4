@@ -7,7 +7,7 @@ public abstract class Reisekort
 
     private int kortNr;
     private int pris;
-    private int nesteKortNr = 1001;
+    private static int nesteKortNr = 1001;
 
     public Reisekort(int p)
     {

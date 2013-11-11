@@ -9,10 +9,21 @@ public class Klippekort extends Reisekort
   private static int sumAlleKlippekort = 0; // Den totale summen som er satt inn
                                             // på alle klippekortene til sammen.
 
+
+  Calendar dato = Calendar.getInstance(); 
+  dato.add( Calendar.HOUR_OF_DAY, 1 ); 
+
+  public Klippekort(int s) {
+    super(PRIS_PER_REISE);
+    saldo = s;
+  }
+
+/*
   < Konstruktør som mottar det beløpet som skal settes inn på kortet
     ved opprettelsen av det. Foruten å sørge for å initialisere klassens
     datafelt, skal den også sørge for å oppdatere antall solgte klippekort
     og ikke minst summen det er solgt klippekort for så langt. >
+*/
 
   < get-metoder for saldo, sumAlleKlippekort og antallSolgte >
 

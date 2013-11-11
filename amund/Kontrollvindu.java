@@ -22,7 +22,7 @@ public class Kontrollvindu extends JFrame
 
         Container c = getContentPane();
         c.setLayout( new FlowLayout() );
-        c.add(new JLabel("Reisekortnr:");
+        c.add( new JLabel("Reisekortnr:") );
         c.add(kortIdFelt);
         c.add(kontroll);
         c.add(display);
@@ -38,67 +38,66 @@ public class Kontrollvindu extends JFrame
 
         Reisekort kortet = kortsystem.finnReisekort(nr);
 
-        if ( kortet =! null)
+        if ( kortet != null)
         {
-            if ( kortet.gyldig() )
-            {
-                if (kortet instanceof Klippekort)
-
-                
-
-            }
-            else
-            {
-                display.setText( "\n\n\nKortet er ikke gyldig");
-            }
-
-
-
+            
             if (kortet instanceof Klippekort)
             {
                 Klippekort klippekortet = (Klippekort) kortet;
-                display.setText( "\n\n\nBetalt kr. " + klippekortet.getPris() + ",-" +
-                                    "Saldo: kr. " + klippekortet.getSaldo() + ",-" +
-                                    "Gyldig til " + klippekortet.getUtløpstidspunkt() );
+
+                if ( klippekortet.gyldig() )
+                {
+                    display.setText( "\n\n\nBetalt kr. " + klippekortet.getPris() + ",-\n" +
+                                        "Saldo: kr. " + klippekortet.getSaldo() + ",-\n" +
+                                        "Gyldig til " + klippekortet.getUtløpstidspunkt() );
+                }
+                else
+                {
+                    display.setText( "\n\n\nKortet er ikke gyldig\n" +
+                                    "Saldo: kr. " + klippekortet.getSaldo() + ",-");
+                }
             }
             else if (kortet instanceof Dagskort)
             {
-                display.setText( "\n\n\nDagskort\nGyldig til " + kortet.getUtløpstidspunkt() );
-                
+                Dagskort dagskortet = (Dagskort) kortet;
+
+                if ( dagskortet.gyldig() )
+                {
+                    display.setText( "Gyldig til " + dagskortet.getUtløpstidspunkt() );
+                }
+                else
+                {
+                    display.setText( "\n\n\nKortet er ikke gyldig");
+                }
             }
             else if (kortet instanceof Maanedskort)
             {
-                display.setText( "\n\n\nMånedkort\nGyldig til " + kortet.getUtløpstidspunkt() );
+                Maanedskort maanedskortet = (Maanedskort) kortet;
+
+                if ( maanedskortet.gyldig() )
+                {
+                    display.setText( "Gyldig til " + maanedskortet.getUtløpstidspunkt() );
+                }
+                else
+                {
+                    display.setText( "\n\n\nKortet er ikke gyldig");
+                }
             }
-
-
         }
         else
         {
             display.setText("\n\n\nReisekortet er ukjent.");
         }
 
+    } //end of kontrollerReisekort()
 
-        < Metoden må lese inn kortets nummer og sjekke om det finnes
-        blandt de registrerte kortene. Hvis det finnes og det er gyldig,
-        skal følgende gjøre:
-
-        - Hvis det er et klippekort, skal prisen for en reise trekkes fra
-        saldoen på kortet. Deretter skal det skrives ut i tekstområde hva
-        reisen koster, hva som er saldoen etter at reisen er betalt og hvor
-        lenge billetten varer.
-
-        - Hvis det er et dagskort eller et månedskort skal det kun skrives ut
-        hvor lenge billetten varer.
-
-        Hvis kortet er ugyldig, skal dette skrives i tekstområdet.
-        For klippekort skal i tillegg saldoen skrives ut.
-
-        Hvis kortet er ukjent, skal dette skrives i tekstområdet.>
-    }
 
     private class Lytteklasse implements ActionListener
     {
+        public void actionPerformed( ActionEvent e )
+        {
+            kontrollerReisekort();
+        }
 
     }
 

@@ -5,16 +5,33 @@ public abstract class Reisekort
 {
   private Calendar utløpstidspunkt; // Blir tildelt verdi når kortet valideres
 
-  < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
-  < pris - hva kortet koster i hele kroner >
+  private long kortNr;
+  private int pris;
+
+  // < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
+  // < pris - hva kortet koster i hele kroner >
   < hjelpevariabel for å generere et unikt kortNr >
+
+  public Reisekort( int p, long nr ){
+    pris = p;
+    kortNr = nr;
+  }
 
   < konstruktør som mottar prisen som parameter og som
     tildeler reisekortet et unikt kortNr >
 
-  < set-metode for utløpstidspunkt >
+    abstract void setUtløp(){
+      Date 
+    }
 
-  < get-metoder for kortNr, pris og utløpstidspunkt >
+    abstract long getKortNr();
+
+    abstract int getPris();
+
+    abstract double getUtLøp();
+
+// < set-metode for utløpstidspunkt >
+// < get-metoder for kortNr, pris og utløpstidspunkt >
 
   public String gyldigTil()
   {

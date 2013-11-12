@@ -5,30 +5,37 @@ public abstract class Reisekort
 {
   private Calendar utløpstidspunkt; // Blir tildelt verdi når kortet valideres
 
-  private long kortNr;
-  private int pris;
+  private int kortNr, pris;
+  private int nesteKortNr = 1;
 
   // < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
   // < pris - hva kortet koster i hele kroner >
-  < hjelpevariabel for å generere et unikt kortNr >
+  // < hjelpevariabel for å generere et unikt kortNr >
 
-  public Reisekort( int p, long nr ){
+  public Reisekort( int p ){
     pris = p;
-    kortNr = nr;
+    kortNr = nesteKortNr++;
   }
 
-  < konstruktør som mottar prisen som parameter og som
-    tildeler reisekortet et unikt kortNr >
+  // < konstruktør som mottar prisen som parameter og som
+  //   tildeler reisekortet et unikt kortNr >
 
-    abstract void setUtløp(){
-      Date 
+    public void setUtlopstidspunkt( int d, int t){
+      utløpstidspunkt = Calendar.getInstance();
+      utløpstidspunkt.set( d, t );
+    } //skal denne være abstrakt tro?
+
+    public int getKortNr(){
+      return kortNr;
     }
 
-    abstract long getKortNr();
+    public int getPris(){
+      return pris;
+    }
 
-    abstract int getPris();
-
-    abstract double getUtLøp();
+    public Calendar getUtlopstidspunkt(){
+      return utløpstidspunkt;
+    }
 
 // < set-metode for utløpstidspunkt >
 // < get-metoder for kortNr, pris og utløpstidspunkt >
@@ -43,10 +50,10 @@ public abstract class Reisekort
 
      return tf.format(utløpstidspunkt.getTime());
   }
-
-  public boolean gyldig() // Metoden vil  bli redefinert av subklassene
+// Metoden vil  bli redefinert av subklassene
+  public boolean gyldig() 
   {
-     Calendar nå = Calendar.getInstance();
-     return nå.before( utløpstidspunkt );
+     Calendar now = Calendar.getInstance();
+     return now.before( utløpstidspunkt );
   }
 }  // end of class Reisekort 

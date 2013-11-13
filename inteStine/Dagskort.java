@@ -1,14 +1,26 @@
-public class Dagskort < arver Reisekort  >
+public class Dagskort extends Reisekort
 {
   public final static int DAGSPRIS = 75;
-  < private datafelt  >
+  
+  private static int antallSolgte = 0;
+  private static int sumAlleDagskort = 0;
 
-  public Dagskort() { ... }
+  public Dagskort(){
+  	super( DAGSPRIS );
+  	antallSolgte ++;
+  	sumAlleDagskort = ( antallSolgte * DAGSPRIS );
+  }
 
-  public static int getSumAlleDagskort() { ... }
+  public static int getSumAlleDagskort(){
+  	return sumAlleDagskort;
+  }
 
-  public static int getAntallSolgte() { ... }
+  public static int getAntallSolgte(){
+  	return antallSolgte;
+  }
 
-  public boolean gyldig() { ... }  // redefinert
+  public boolean gyldig() {  
+  return true;
+  }  // redefinert
 
 }  // end of class Dagskort

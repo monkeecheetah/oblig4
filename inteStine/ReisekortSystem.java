@@ -2,7 +2,7 @@
 
 public class ReisekortSystem
 {
-  public static final int = ANTALL 100;
+  public static final int ANTALL = 100; //flyttet = tegnet til etter antall
   public static final int UTVIDELSE = 10;
   private Reisekort[] reisekortene;
 

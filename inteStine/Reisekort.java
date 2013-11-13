@@ -20,10 +20,9 @@ public abstract class Reisekort
   // < konstruktør som mottar prisen som parameter og som
   //   tildeler reisekortet et unikt kortNr >
 
-    public void setUtlopstidspunkt( int d, int t){
+    public void setUtlopstidspunkt(){
       utløpstidspunkt = Calendar.getInstance();
-      utløpstidspunkt.set( d, t );
-    } //skal denne være abstrakt tro?
+    } 
 
     public int getKortNr(){
       return kortNr;
@@ -51,8 +50,7 @@ public abstract class Reisekort
      return tf.format(utløpstidspunkt.getTime());
   }
 // Metoden vil  bli redefinert av subklassene
-  public boolean gyldig() 
-  {
+  public boolean gyldig() {
      Calendar now = Calendar.getInstance();
      return now.before( utløpstidspunkt );
   }

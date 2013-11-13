@@ -55,8 +55,8 @@ public class Klippekort extends Reisekort
       Returverdien skal angi utfallet av valideringen.  >*/
   }
 
-  public void ladOpp( int beløp ){
-    saldo += beløp;
+  public void ladOpp( int belop ){
+    saldo += belop;
     sumAlleKlippekort ++;
     // < Metoden over skal øke saldoen på kortet med det beløpet som
     //   parameteren angir og oppdatere datafeltet sumAlleKlippekort.  >

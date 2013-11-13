@@ -1,5 +1,5 @@
 import java.util.Calendar;
-
+//endret navn på klassen pga kompileringsproblemer
 public class Maanedskort extends Reisekort
 {
 
@@ -9,7 +9,7 @@ public class Maanedskort extends Reisekort
   private static int sumAlleMndkort = 0;      // Det totale antall solgte klippekort
 
 
-  public Månedskort(){
+  public Maanedskort(){
   super( MÅNEDSPRIS );
   antallSolgte ++;
   sumAlleMndkort = ( antallSolgte * MÅNEDSPRIS );

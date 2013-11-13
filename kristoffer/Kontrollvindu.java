@@ -1,4 +1,4 @@
-< import-setninger >
+import javax.swing.*;
 
 public class Kontrollvindu < ... >
 {

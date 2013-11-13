@@ -1,7 +1,8 @@
-public class Dagskort < arver Reisekort  >
+public class Dagskort extends Reisekort
 {
   public final static int DAGSPRIS = 75;
-  < private datafelt  >
+
+  // < private datafelt  >
 
   public Dagskort() { ... }
 

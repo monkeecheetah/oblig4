@@ -1,6 +1,6 @@
-< import-setninger >
+/*< import-setninger >*/
 
-public class Reisekortsalg < ... >
+public class Reisekortsalg <...>
 {
   private static final int KLIPP = 1, DAG = 2, MÅNED = 3;
   private JTextField kortNrFelt, betalingsFelt, beløpsFelt;
@@ -14,32 +14,35 @@ public class Reisekortsalg < ... >
     super("KORTSALG");
     kortsystem = k;
     lytter =  new Lytter();
-    < oppretter skjermkomponenene >
+    // < oppretter skjermkomponenene >
     klipp.addActionListener(lytter);
     dag.addActionListener(lytter);
     mnd.addActionListener(lytter);
     ladeknapp.addActionListener( lytter );
-    < setter opp brukergrensesnittet. >
+    // < setter opp brukergrensesnittet. >
   }
 
   public void nyttReisekort(int type)
   {
-    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.
+
+    
+
+/*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.
       (Se konstantene i skissen av klassen over.) Når kortet er opprettet og satt
       inn i datasystemet, skal metoden skrive ut kortets nummer i tekstfeltet
-      kortNrFelt og prisen som skal betales i tekstfeltet betalingsFelt. >
+      kortNrFelt og prisen som skal betales i tekstfeltet betalingsFelt. >*/
   }
 
   public void ladOppKlippekort()
   {
-    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver
+/*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver
       inn, under forutsetning av at kortnummerer som oppgis tilhører et
       klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut
       i et dialogvindu (JOptionPane.showMessageDialog(..)), og prisen som skal
       betales skrives i betalingsfeltet. Hvis kortnummeret er feil skal det
-      skrives "error" i betalingsfeltet. >
+      skrives "error" i betalingsfeltet. > */
   }
 
-  < privat lytteklasse >
+/*  < privat lytteklasse > */
 
 } // end of class Reisekortsalg

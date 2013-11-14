@@ -9,17 +9,17 @@ public class Kontrollvindu < ... >
 
   public Kontrollvindu(ReisekortSystem r)
   {
-    < kaller superklassens konstruktør >
+/*    < kaller superklassens konstruktør > */
 
     kortsystem = r;
 
-    < oppretter lytteobjekt og knytter knappen til det. >
-    < setter opp brukergrensesnittet >
+/*    < oppretter lytteobjekt og knytter knappen til det. >
+      < setter opp brukergrensesnittet > */
   }
 
   public void kontrollerReisekort()
   {
-    < Metoden må lese inn kortets nummer og sjekke om det finnes
+/*    < Metoden må lese inn kortets nummer og sjekke om det finnes
       blandt de registrerte kortene. Hvis det finnes og det er gyldig,
       skal følgende gjøre:
 
@@ -34,9 +34,9 @@ public class Kontrollvindu < ... >
       Hvis kortet er ugyldig, skal dette skrives i tekstområdet.
       For klippekort skal i tillegg saldoen skrives ut.
 
-      Hvis kortet er ukjent, skal dette skrives i tekstområdet.>
+      Hvis kortet er ukjent, skal dette skrives i tekstområdet.> */
   }
 
-  < privat lytteklasse >
+/*  < privat lytteklasse > */
 
 }  // end of class Kontrollvindu

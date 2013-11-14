@@ -23,7 +23,8 @@ public class ReisekortSystem
     }
     return -1;
 
-/*    < Metoden skal returnere (en referanse/peker til) det reisekortet i arrayen som har kortNr lik den innkomne parameteren nr. Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>
+/*    
+    < Metoden skal returnere (en referanse/peker til) det reisekortet i arrayen som har kortNr lik den innkomne parameteren nr. Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>
 */
   
   }
@@ -31,7 +32,13 @@ public class ReisekortSystem
   public void utvidArray()
   {
   
+    Reisekort[] kopi = reisekortene;
 
+    Reisekort[] reisekortene = new Reisekort[kopi.length + UTVIDELSE];
+
+    for(int i = 0; i < kopi.length; i++) {
+      reisekortene[i] = kopi[i];
+    }
 
 /*    < Metoden skal utvide arrayen med så mange elementer som konstanten UTVIDELSE angir. Metoden vil bli kalt når det er behov for å utvide arrayen i forbindelse med innsetting av et nytt reisekort. >*/
 
@@ -39,7 +46,6 @@ public class ReisekortSystem
 
   public void settInnReisekort(Reisekort k)
   {
-
     for (int i = 0; i < reisekortene.length; i++) {
       if(reisekortene[i] != null) {
         reisekortene[i] = k;

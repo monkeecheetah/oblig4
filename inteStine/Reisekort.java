@@ -3,7 +3,7 @@ import java.text.DateFormat;
 
 public abstract class Reisekort
 {
-  private Calendar utløpstidspunkt; // Blir tildelt verdi når kortet valideres
+  private Calendar utlopstidspunkt; // Blir tildelt verdi når kortet valideres
 
   private int kortNr, pris;
   private int nesteKortNr = 1;
@@ -21,7 +21,7 @@ public abstract class Reisekort
   //   tildeler reisekortet et unikt kortNr >
 
     public void setUtlopstidspunkt(){
-      utløpstidspunkt = Calendar.getInstance();
+      utlopstidspunkt = Calendar.getInstance();
     } 
 
     public int getKortNr(){
@@ -33,7 +33,7 @@ public abstract class Reisekort
     }
 
     public Calendar getUtlopstidspunkt(){
-      return utløpstidspunkt;
+      return utlopstidspunkt;
     }
 
 // < set-metode for utløpstidspunkt >
@@ -41,17 +41,17 @@ public abstract class Reisekort
 
   public String gyldigTil()
   {
-     if ( utløpstidspunkt == null )
+     if ( utlopstidspunkt == null )
        return null;
 
      DateFormat tf = DateFormat.getDateTimeInstance
                   ( DateFormat.LONG, DateFormat.MEDIUM );
 
-     return tf.format(utløpstidspunkt.getTime());
+     return tf.format(utlopstidspunkt.getTime());
   }
 // Metoden vil  bli redefinert av subklassene
   public boolean gyldig() {
      Calendar now = Calendar.getInstance();
-     return now.before( utløpstidspunkt );
+     return now.before( utlopstidspunkt );
   }
 }  // end of class Reisekort 

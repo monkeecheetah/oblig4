@@ -18,11 +18,9 @@ public class ReisekortSystem
       if ( reisekort[i].getKortNr() = nr ){
         return i;
       }
-
     }
-/*    < Metoden skal returnere (en referanse/peker til) det reisekortet
-      i arrayen som har kortNr lik den innkomne parameteren nr.
-      Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>*/
+    return null;
+/*    < Metoden skal returnere (en referanse/peker til) det reisekortet i arrayen som har kortNr lik den innkomne parameteren nr. Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>*/
   }
 
   public void utvidArray()
@@ -63,31 +61,35 @@ public class ReisekortSystem
   }
 
   public Klippekort ladOppKlippekort( int nr, int beløp ){
-    for(int i = 0; i < reisekortene.length; i++ reisekortene[i]instanceof Klippekort){
-      if(reisekortene[i].getKortNr == nr && reisekortene[i] instanceof Klippekort ){
+    for(int i = 0; i < reisekortene.length; i++)
+      if(reisekortene[i].getKortNr == nr && reisekortene[i]instanceof Klippekort ){
         Klippekort(beløp);
-        return Klippekort;
+        return reisekortene[i];
       }
       return null;
     }
-/*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr,
-      skal metoden øke saldoen på dette kortet med så mye som parameteren
-      beløp angir, og deretter returnere ( en referanse/peker til) klippekortet.
-      Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
-  }
+/*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr, skal metoden øke saldoen på dette kortet med så mye som parameteren beløp angir, og deretter returnere ( en referanse/peker til) klippekortet. Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
 
   public static String inntjeningsInfo()
   {
-    int sum, sumMnd, sumDag, sumKlipp; 
-    for( int i = 0; i < reisekortene.length; i++){
-      if( reisekortene[i]  instanceof Maanedskort )
+    String print = "";
+    int sum, sumMnd, antM, sumDag, antD, sumKlipp, antK; 
+/*    for( int i = 0; i < reisekortene.length; i++){
+      if( reisekortene[i] instanceof Maanedskort )   
         sumMnd += reisekortene[i].getAntallSolgte();
-      else if( reisekortene[i]  instanceof Dagskort )
-        dumDag += reisekortene[i].getAntallSolgte();
+      print = "Månedskort solgt; " reisekortene[i].getAntallSolgte() + " for "
 
-    }
+
+      else if( reisekortene[i] instanceof Dagskort )
+        sumDag += reisekortene[i].getAntallSolgte();
+      else if( reisekortne[i] instanceof Klippekort )
+        sumKlipp += reisekortene.sumAlleKlippekort();
+    }*/
+
+  
+
   /*
-    < Metoden skal returnere en tekst som inneholder informasjon om   hvor mange reisekort det er solgt av de forskjellige typene, hvor mye som er tjent inn på hver type, og hvor mye som er tjent inn totalt. >*/
+    < Metoden skal returnere en tekst som inneholder informasjon om hvor mange reisekort det er solgt av de forskjellige typene, hvor mye som er tjent inn på hver type, og hvor mye som er tjent inn totalt. >*/
   }
 }  // end of class ReisekortSystem
 

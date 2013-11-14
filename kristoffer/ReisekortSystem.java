@@ -23,9 +23,7 @@ public class ReisekortSystem
     }
     return -1;
 
-/*    < Metoden skal returnere (en referanse/peker til) det reisekortet
-      i arrayen som har kortNr lik den innkomne parameteren nr.
-      Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>
+/*    < Metoden skal returnere (en referanse/peker til) det reisekortet i arrayen som har kortNr lik den innkomne parameteren nr. Hvis kortet ikke finnes i arrayen, skal metoden returnere null.>
 */
   
   }
@@ -35,9 +33,7 @@ public class ReisekortSystem
   
 
 
-/*    < Metoden skal utvide arrayen med så mange elementer som konstanten
-      UTVIDELSE angir. Metoden vil bli kalt når det er behov for å utvide
-      arrayen i forbindelse med innsetting av et nytt reisekort. >*/
+/*    < Metoden skal utvide arrayen med så mange elementer som konstanten UTVIDELSE angir. Metoden vil bli kalt når det er behov for å utvide arrayen i forbindelse med innsetting av et nytt reisekort. >*/
 
   }
 
@@ -50,12 +46,7 @@ public class ReisekortSystem
       }
     }
 
-/*    < Metoden mottar et nytt reisekort som parameter og skal sette dette
-      inn på første ledige plass i arrayen, under forutsetning av at det
-      ikke finnes et reisekort med samme nr i arrayen fra før.
-      Hvis arrayen er full, skal den først utvides med så mange
-      elementer som konstanten UTVIDELSE angir, og deretter skal kortet
-      settes inn. >*/
+/*    < Metoden mottar et nytt reisekort som parameter og skal sette dette inn på første ledige plass i arrayen, under forutsetning av at det ikke finnes et reisekort med samme nr i arrayen fra før. Hvis arrayen er full, skal den først utvides med så mange elementer som konstanten UTVIDELSE angir, og deretter skal kortet settes inn. >*/
   }
 
   public Klippekort ladOppKlippekort( int nr, int belop )

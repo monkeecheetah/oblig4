@@ -1,12 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
 
-public class Administrasjon extends JFrame implements ActionListender
+public class Administrasjonsvindu extends JFrame implements ActionListener
 {
 	private JButton info;
 	private JTextArea output;
 
-	public Administrasjon{
+	public Administrasjonsvindu(){
 		
 		super("ADMINISTRASJON");
 		info = new JButton();
@@ -16,13 +16,13 @@ public class Administrasjon extends JFrame implements ActionListender
 
 		Container c = getContentPane();
 		c.setLayout( new FlowLayout());
-		c.add info("Salgsinfo");
-		c.add output( 30, 60 );
+		c.add( info( "Salgsinfo" ) );
+		c.add( output( 30, 60 ) );
 	}
 
 	public void actionPerformed( ActionEvent e ){
-		e.getSource() = info
-			ReisekortSystem.inntjeningsInfo();
+		if ( e.getSource() = info )
+			output.setText( ReisekortSystem.inntjeningsInfo() );
 	}
 }
 

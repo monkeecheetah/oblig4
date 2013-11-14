@@ -16,7 +16,7 @@ public class ReisekortSystem
   {
     for(int i = 0; i < reisekortene.length; i++){
       if ( reisekortene[i].getKortNr() == nr ){
-        return i;
+        return reisekortene[i];
       }
     }
     return null;
@@ -27,9 +27,9 @@ public class ReisekortSystem
   {
     Reisekort[] temp = reisekortene;
 
-    reisekortene = new Reisekort[ reisekortene.length + UTVIDELSE ];
+    reisekortene = new Reisekort[ temp.length + UTVIDELSE ];
     
-    for( int i = 0; i < reisekortene; i++ ){
+    for( int i = 0; i < reisekortene.length; i++ ){
       if(reisekortene[i] != null){
         reisekortene[i] = temp[i];
       }
@@ -40,9 +40,9 @@ public class ReisekortSystem
   }
 
   public void settInnReisekort(Reisekort k){
-    boolean check;
+    boolean check =false;
     for( int i = 0; i < reisekortene.length; i++){
-      if( reisekortene[i].getKortNr == k )
+      if( reisekortene[i].getKortNr() == k.getKortNr() )
         check = true;
     }
 
@@ -61,28 +61,30 @@ public class ReisekortSystem
   }
 
   public Klippekort ladOppKlippekort( int nr, int beløp ){
-    for(int i = 0; i < reisekortene.length; i++)
-      if(super.getKortNr == nr && reisekortene[i] instanceof Klippekort ){
-        Klippekort.setBeløp(beløp);
+/*    for( int i = 0; i < reisekortene.length; i++)
+     if( reisekortene[i].getKortNr() == nr && reisekortene[i] instanceof Klippekort ){
+       ******** FFFFFEEEEIIIIIIIIIIILLLLLLLL *******
+        Klippekort(beløp);
         return reisekortene[i];
       }
+    */
       return null;
-    }
+  }
 /*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr, skal metoden øke saldoen på dette kortet med så mye som parameteren beløp angir, og deretter returnere ( en referanse/peker til) klippekortet. Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
 
   public static String inntjeningsInfo()
   {
     String print = "";
-    int klipp = Klippekort.sumAlleKlippekort();
-    int dag = Dagskort.sumAlleDagskort();
-    int mnd = Maanedskort.sumAlleMndkort();
-    int sum = klipp + dag + mnd;
+    // int klipp = Klippekort.sumAlleKlippekort();
+    int dag = Dagskort.getSumAlleDagskort();
+    int mnd = Maanedskort.getSumAlleMndkort();
+    int sum = /*klipp + */dag + mnd;
 
-    print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
+    // print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
     print += "Antall dagskort solgt: " + Dagskort.getAntallSolgte() + "\tfor" + dag + "kr\n";
     print += "Antall månedskort solgt: " + Maanedskort.getAntallSolgte() + "\tfor" + mnd + "kr\n";
 
-    print += "Sammenlagt sum " + sum +"kr";
+    print += "Sammenlagt sum " + sum + "kr";
 
     return print; 
   /* < Metoden skal returnere en tekst som inneholder informasjon om hvor mange reisekort det er solgt av de forskjellige typene, hvor mye som er tjent inn på hver type, og hvor mye som er tjent inn totalt. >*/

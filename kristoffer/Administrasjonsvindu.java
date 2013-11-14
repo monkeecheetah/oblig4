@@ -19,10 +19,14 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
 		c.add(new JScrollPane(tekstFelt));
 	}
 
+	private void visInfo() {
+
+	} 
+
    public void actionPerformed(ActionEvent e)
    {
-     if (e.getSource() == ny)
-       visInfo();
+     if (e.getSource() == salgsInfo)
+       ReisekortSystem.inntjeningsInfo();
 	}
 
 

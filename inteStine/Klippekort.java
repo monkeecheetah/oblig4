@@ -31,7 +31,6 @@ public class Klippekort extends Reisekort
     return antallSolgte;
   }
   // < get-metoder for saldo, sumAlleKlippekort og antallSolgte >
-
   // Blir redefinert her!
   public boolean gyldig(){
    boolean sjekk = super.gyldig();

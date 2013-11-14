@@ -73,36 +73,18 @@ public class ReisekortSystem
   public static String inntjeningsInfo()
   {
     String print = "";
-    int sum, sumMnd, antM, sumDag, antD, sumKlipp, antK; 
-/*    for( int i = 0; i < reisekortene.length; i++){
-      if( reisekortene[i] instanceof Maanedskort )   
-        sumMnd += reisekortene[i].getAntallSolgte();
-      print = "Månedskort solgt; " reisekortene[i].getAntallSolgte() + " for "
+    int klipp = Klippekort.sumAlleKlippekort();
+    int dag = Dagskort.sumAlleDagskort();
+    int mnd = Maanedskort.sumAlleMndkort();
+    int sum = klipp + dag + mnd;
 
+    print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
+    print += "Antall dagskort solgt: " + Dagskort.getAntallSolgte() + "\tfor" + dag + "kr\n";
+    print += "Antall månedskort solgt: " + Maanedskort.getAntallSolgte() + "\tfor" + mnd + "kr\n";
 
-      else if( reisekortene[i] instanceof Dagskort )
-        sumDag += reisekortene[i].getAntallSolgte();
-      else if( reisekortne[i] instanceof Klippekort )
-        sumKlipp += reisekortene.sumAlleKlippekort();
-    }*/
+    print += "Sammenlagt sum " + sum +"kr";
 
-  
-
-  /*
-    < Metoden skal returnere en tekst som inneholder informasjon om hvor mange reisekort det er solgt av de forskjellige typene, hvor mye som er tjent inn på hver type, og hvor mye som er tjent inn totalt. >*/
+    return print; 
+  /* < Metoden skal returnere en tekst som inneholder informasjon om hvor mange reisekort det er solgt av de forskjellige typene, hvor mye som er tjent inn på hver type, og hvor mye som er tjent inn totalt. >*/
   }
 }  // end of class ReisekortSystem
-
-/*
- a) Programmer klassens konstruktør og metoden public Reisekort finnReisekort(int nr).
-
-b) Programmer metoden public void utvidArray().
-
-c) Programmer metoden public void settInnReisekort(Reisekort k).
-
-d) Programmer metoden public Klippekort ladOppKlippekort( int nr, int beløp ).
-
-e) Programmer metoden public static String inntjeningsInfo().
-
-
-*/

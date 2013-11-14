@@ -14,8 +14,8 @@ public class ReisekortSystem
 
   public Reisekort finnReisekort(int nr)
   {
-    for(int i = 0; i < reisekort.length; i++){
-      if ( reisekort[i].getKortNr() = nr ){
+    for(int i = 0; i < reisekortene.length; i++){
+      if ( reisekortene[i].getKortNr() == nr ){
         return i;
       }
     }
@@ -30,7 +30,7 @@ public class ReisekortSystem
     reisekortene = new Reisekort[ reisekortene.length + UTVIDELSE ];
     
     for( int i = 0; i < reisekortene; i++ ){
-      if(reisekortene[i] =! null){
+      if(reisekortene[i] != null){
         reisekortene[i] = temp[i];
       }
     }
@@ -52,7 +52,7 @@ public class ReisekortSystem
           reisekortene[i] = k;
         else{
           utvidArray();
-          settInnReisekort( Reisekort k );
+          settInnReisekort( k );
         }
       }
     }
@@ -62,8 +62,8 @@ public class ReisekortSystem
 
   public Klippekort ladOppKlippekort( int nr, int beløp ){
     for(int i = 0; i < reisekortene.length; i++)
-      if(reisekortene[i].getKortNr == nr && reisekortene[i]instanceof Klippekort ){
-        Klippekort(beløp);
+      if(super.getKortNr == nr && reisekortene[i] instanceof Klippekort ){
+        Klippekort.setBeløp(beløp);
         return reisekortene[i];
       }
       return null;

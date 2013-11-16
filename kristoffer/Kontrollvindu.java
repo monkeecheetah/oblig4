@@ -1,16 +1,18 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Kontrollvindu extends JFrame implements ActionListener{
+public class Kontrollvindu extends JFrame{
 
   private JTextField kortIdFelt;
   private JTextArea display;
   private JButton kontroll;
   private ReisekortSystem kortsystem;
-
+  private Lytter lytter;
   public Kontrollvindu(ReisekortSystem r)
   {
-    super("BILLETT KONTROLL")
-    kortIdfelt = new JTextField();
+    super("BILLETTKONTROLL");
+    kortIdFelt = new JTextField();
     display = new JTextArea();
     kontroll = new JButton();
 
@@ -20,12 +22,12 @@ public class Kontrollvindu extends JFrame implements ActionListener{
 
     kortsystem = r;
 
-    kontroll.addActionListener( this );
+    kontroll.addActionListener( lytter );
 
     Container c = getContentPane();
     c.setLayout( new FlowLayout() );
     c.add( new JLabel("Reisekortnr:") );
-    c.add( kortIdfelt );
+    c.add( kortIdFelt );
     c.add( kontroll );
     c.add( display );
 
@@ -41,26 +43,24 @@ public class Kontrollvindu extends JFrame implements ActionListener{
 
   public void kontrollerReisekort(){
 
-  int kortNummer = kortIdfelt.getText()
+    int kortNummer = Integer.parseInt(kortIdFelt.getText());
 
-    for(int i = 0; i < kortsystem.length; i++){
-      if(kortsystem[i].getKortNr == kortNummer){
-        if( kortnummer[i].gyldig() == true ){
-          if( kortnummer[i] instanceof Klippekort){
-            Klippekort klipp = (Klippekort) kortnummer[i];
-            if(klipp.gyldig() == true );
-              display.setText( "Gjenstående saldo på klippekort " + klipp.getSaldo + "\npris pr reiser er " + PRIS_PER_REISE + "kr\nbiletten er gyldig i en time");
-          }else if( kortnummer[i] instanceof Dagskort){
-            Dagskort dag = (Dagskort) kortnummer[i];
-            if (dag.gyldig() == true )
-              
+    Reisekort k = kortsystem.finnReisekort(kortNummer);
 
-          }else if( kortnummer[i] instanceof Maanedskort ){
-            Maanedskort mnd = (Maanedskort) kortnummer[i];
+    display.setText("");
 
-          }
-        }
+    if(k == null) {
+      display.setText("Kortet finnes ikke");
+      return;
+    }
+    if (k.gyldig()) {
+      if(k instanceof Klippekort) {
+        display.append("Betalt kr." + Klippekort.PRIS_PER_REISE+".-");
+        display.append("Saldo: kr." + ((Klippekort) k).getSaldo() + ".-");
+        display.append("Gyldig til " + k.gyldigTil());
       }
+    }
+
 
     }
 /*    < Metoden må lese inn kortets nummer og sjekke om det finnes
@@ -79,11 +79,13 @@ public class Kontrollvindu extends JFrame implements ActionListener{
       For klippekort skal i tillegg saldoen skrives ut.
 
       Hvis kortet er ukjent, skal dette skrives i tekstområdet.> */
-  }
+  
 
-  private void actionPerformed( ActionEvent e){
-    if ( e.getSorce() == kontroll )
-      kontrollerReisekort()
+  private class Lytter implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+    if ( e.getSource() == kontroll )
+      kontrollerReisekort();
+    }
   }
 
 /*  < privat lytteklasse > */

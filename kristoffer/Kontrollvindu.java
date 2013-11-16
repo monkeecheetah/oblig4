@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-/* public class Kontrollvindu < ... > */
-{
+public class Kontrollvindu extends JFrame implements ActionListener{
+
   private JTextField kortIdFelt;
   private JTextArea display;
   private JButton kontroll;
@@ -9,16 +9,36 @@ import javax.swing.*;
 
   public Kontrollvindu(ReisekortSystem r)
   {
+    super("BILLETT KONTROLL")
+    kortIdfelt = new JTextField();
+    display = new JTextArea();
+    kontroll = new JButton();
+
+    // kortsystem = new ReisekortSystem();
+
 /*    < kaller superklassens konstruktør > */
 
     kortsystem = r;
+
+    kontroll.addActionListener( this );
+
+    Container c = getContentPane();
+    c.setLayout( new FlowLayout() );
+    c.add( new JLabel("Reisekortnr:") );
+    c.add( kortIdfelt );
+    c.add( kontroll );
+    c.add( display );
 
 /*    < oppretter lytteobjekt og knytter knappen til det. >
       < setter opp brukergrensesnittet > */
   }
 
-  public void kontrollerReisekort()
-  {
+  public void kontrollerReisekort(){
+
+  kortIdfelt.getText()
+
+  er det gyldig 
+
 /*    < Metoden må lese inn kortets nummer og sjekke om det finnes
       blandt de registrerte kortene. Hvis det finnes og det er gyldig,
       skal følgende gjøre:
@@ -35,6 +55,11 @@ import javax.swing.*;
       For klippekort skal i tillegg saldoen skrives ut.
 
       Hvis kortet er ukjent, skal dette skrives i tekstområdet.> */
+  }
+
+  private void actionPerformed( ActionEvent e){
+    if ( e.getSorce() == kontroll )
+      kontrollerReisekort()
   }
 
 /*  < privat lytteklasse > */

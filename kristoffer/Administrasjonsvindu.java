@@ -20,13 +20,14 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
 	}
 
 	private void visInfo() {
+		tekstFelt.setText(ReisekortSystem.inntjeningsInfo());
 
 	} 
 
    public void actionPerformed(ActionEvent e)
    {
      if (e.getSource() == salgsInfo)
-       ReisekortSystem.inntjeningsInfo();
+       visInfo();
 	}
 
 

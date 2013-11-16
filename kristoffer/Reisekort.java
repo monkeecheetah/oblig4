@@ -6,7 +6,7 @@ public abstract class Reisekort
   private Calendar utlopstidspunkt; // Blir tildelt verdi når kortet valideres
 
   private int kortNr, pris;
-  private int nesteKortNr = 1;
+  private static int nesteKortNr = 1;
 
   // < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
   // < pris - hva kortet koster i hele kroner >

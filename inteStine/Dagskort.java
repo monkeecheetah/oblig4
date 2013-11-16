@@ -19,8 +19,9 @@ public class Dagskort extends Reisekort
   	return antallSolgte;
   }
 
-  public boolean gyldig() {  
-  return true;
+  public boolean gyldig() {
+    super.gyldig();
+    
   }  // redefinert
 
 }  // end of class Dagskort

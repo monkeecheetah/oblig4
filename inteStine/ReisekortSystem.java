@@ -59,21 +59,20 @@ public class ReisekortSystem
    /* < Metoden mottar et nytt reisekort som parameter og skal sette dette inn på første ledige plass i arrayen, under forutsetning av at detikke finnes et reisekort med samme nr i arrayen fra før. Hvis arrayen er full, skal den først utvides med så mange elementer som konstanten UTVIDELSE angir, og deretter skal kortet settes inn. >*/
   }
 
-  public Klippekort ladOppKlippekort( int nr, int beløp ){
+  public Klippekort ladOppKlippekort( int nr, int belop ){
     
-
-      return null;
-  }
-/*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr, skal metoden øke saldoen på dette kortet med så mye som parameteren beløp angir, og deretter returnere ( en referanse/peker til) klippekortet. Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
-
-
-/*    for( int i = 0; i < reisekortene.length; i++)
-     if( reisekortene[i].getKortNr() == nr && reisekortene[i] instanceof Klippekort ){
-       ******** FFFFFEEEEIIIIIIIIIIILLLLLLLL *******
-        Klippekort(beløp);
-        return reisekortene[i];
+      for(int i = 0; i < reisekortene.length; i++) {
+        if(nr == reisekortene[i].getKortNr()) {
+          if(reisekortene[i] instanceof Klippekort) {
+              Klippekort reisekortet = (Klippekort) reisekortene[i];
+              reisekortet.ladOpp(belop);
+          
+            return reisekortet;
+        }
       }
-    */
+    }
+    return null;
+  }
 
   public static String inntjeningsInfo()
   {

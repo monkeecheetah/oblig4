@@ -36,11 +36,7 @@ public abstract class Reisekort
       return utlopstidspunkt;
     }
 
-// < set-metode for utløpstidspunkt >
-// < get-metoder for kortNr, pris og utløpstidspunkt >
-
-  public String gyldigTil()
-  {
+  public String gyldigTil(){
      if ( utlopstidspunkt == null )
        return null;
 

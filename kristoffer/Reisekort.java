@@ -20,8 +20,15 @@ public abstract class Reisekort
   // < konstruktør som mottar prisen som parameter og som
   //   tildeler reisekortet et unikt kortNr >
 
-    public void setUtlopstidspunkt(){
-      utlopstidspunkt = Calendar.getInstance();
+    public void setUtlopstidspunkt(String kortType){
+      Calendar utlopstidspunkt = Calendar.getInstance();
+      if(kortType.equals("klippekort")) {
+        utlopstidspunkt.add(Calendar.HOUR_OF_DAY, 1);
+      } else if (kortType.equals("manedskort")) {
+        utlopstidspunkt.add(Calendar.DAY_OF_MONTH, 30);
+      } else if (kortType.equals("dagskort")) {
+        utlopstidspunkt.add(Calendar.HOUR_OF_DAY, 24);
+      }
     } 
 
     public int getKortNr(){

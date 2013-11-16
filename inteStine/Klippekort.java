@@ -40,7 +40,7 @@ public class Klippekort extends Reisekort
     }
     else if(saldo > PRIS_PER_REISE){
       saldo -= PRIS_PER_REISE;
-      super.setUtlopstidspunkt();
+      super.setUtlopstidspunkt( 1 );
       return true;
     }
     return false;

@@ -18,6 +18,9 @@ public class Reisekortsalg extends JFrame implements ActionListener
     kortsystem = k;
     lytter =  new Lytter();
 
+    kortNrFelt = new JTextField();
+    betalingsFelt = new JTextField();
+    belopsFelt = new JTextField();
     klipp = new JButton("Klippekort");
     dag = new JButton("Dagskort");
     mnd = new JButton("Månedskort");
@@ -30,7 +33,9 @@ public class Reisekortsalg extends JFrame implements ActionListener
     c.add(mnd);
     c.add(info);
 
-    c.add(new JScrollPane(tekstFelt));
+    c.add(kortNrFelt);
+    c.add(betalingsFelt);    
+    c.add(belopsFelt);   
 
     // < oppretter skjermkomponenene >
     klipp.addActionListener(lytter);
@@ -43,11 +48,23 @@ public class Reisekortsalg extends JFrame implements ActionListener
   public void nyttReisekort(int type)
   {
     if(type == 1) {
-      Reisekort reise = new Reisekort();
+      Reisekort reise = new Reisekort(getText(betalingsFelt));
+      settInnReisekort(reise);
+      reise.ladOpp(getText.belopsFelt);
+      reise.ladOpp(getText.betalingsFelt);
+      getUtlopstidspunkt();
     } else if(type == 2) {
-
+      Reisekort reise = new Reisekort(getText(betalingsFelt));
+      settInnReisekort(reise);
+      reise.ladOpp(getText.betalingsFelt);
+      reise.setUtlopstidspunkt();
+      reise.getUtlopstidspunkt();
     } else if(type == 3) {
-
+      Reisekort reise = new Reisekort(getText(betalingsFelt));
+      settInnReisekort(reise);
+      reise.ladOpp(getText.betalingsFelt);
+      reise.setUtlopstidspunkt();
+      reise.getUtlopstidspunkt();
     }
     
 
@@ -59,12 +76,28 @@ public class Reisekortsalg extends JFrame implements ActionListener
 
   public void ladOppKlippekort()
   {
+    belopsFelt.getText();
+
 /*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver
       inn, under forutsetning av at kortnummerer som oppgis tilhører et
       klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut
       i et dialogvindu (JOptionPane.showMessageDialog(..)), og prisen som skal
       betales skrives i betalingsfeltet. Hvis kortnummeret er feil skal det
       skrives "error" i betalingsfeltet. > */
+  }
+
+   private void actionPerformed(ActionEvent e)
+   {
+     if (e.getSource() == klipp) {
+       nyttReisekort(KLIPP);      
+     } else if(e.getSource() == dag) {
+        nyttReisekort(DAG);      
+     } else if(e.getSource() == mnd) {
+        nyttReisekort(MAANED);      
+     } else if(e.getSource() == ladeknapp) {
+        ladOppKlippekort();      
+     }
+
   }
 
 /*  < privat lytteklasse > */

@@ -20,7 +20,12 @@ public class Dagskort extends Reisekort
   }
 
   public boolean gyldig() {  
-  return true;
+   boolean sjekk = super.gyldig();
+
+   if(sjekk == true){
+      return sjekk;
+    }
+    return false;
   }  // redefinert
 
 }  // end of class Dagskort

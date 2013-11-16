@@ -1,9 +1,12 @@
 /*< import-setninger >*/
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
-public class Reisekortsalg <...>
+public class Reisekortsalg extends JFrame implements ActionListener
 {
-  private static final int KLIPP = 1, DAG = 2, MÅNED = 3;
-  private JTextField kortNrFelt, betalingsFelt, beløpsFelt;
+  private static final int KLIPP = 1, DAG = 2, MAANED = 3;
+  private JTextField kortNrFelt, betalingsFelt, belopsFelt;
   private JButton klipp, dag, mnd, ladeknapp;
   private JTextArea info;
   private Lytter lytter;
@@ -14,6 +17,21 @@ public class Reisekortsalg <...>
     super("KORTSALG");
     kortsystem = k;
     lytter =  new Lytter();
+
+    klipp = new JButton("Klippekort");
+    dag = new JButton("Dagskort");
+    mnd = new JButton("Månedskort");
+    ladeknapp = new JButton("Ladeknapp");
+    info = new JTextArea(10,30);
+    Container c = getContentPane();
+    c.setLayout(new FlowLayout());
+    c.add(klipp);
+    c.add(dag);
+    c.add(mnd);
+    c.add(info);
+
+    c.add(new JScrollPane(tekstFelt));
+
     // < oppretter skjermkomponenene >
     klipp.addActionListener(lytter);
     dag.addActionListener(lytter);
@@ -24,7 +42,13 @@ public class Reisekortsalg <...>
 
   public void nyttReisekort(int type)
   {
+    if(type == 1) {
+      Reisekort reise = new Reisekort();
+    } else if(type == 2) {
 
+    } else if(type == 3) {
+
+    }
     
 
 /*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.

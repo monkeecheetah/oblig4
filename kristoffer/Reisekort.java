@@ -27,7 +27,7 @@ public abstract class Reisekort
       } else if (kortType.equals("manedskort")) {
         utlopstidspunkt.add(Calendar.DAY_OF_MONTH, 30);
       } else if (kortType.equals("dagskort")) {
-        utlopstidspunkt.add(Calendar.HOUR_OF_DAY, 24);
+        utlopstidspunkt.add(Calendar.DAY_OF_MONTH, 1);
       }
     } 
 

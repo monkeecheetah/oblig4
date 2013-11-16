@@ -56,11 +56,17 @@ public class ReisekortSystem
         }
       }
     }
-
    /* < Metoden mottar et nytt reisekort som parameter og skal sette dette inn på første ledige plass i arrayen, under forutsetning av at detikke finnes et reisekort med samme nr i arrayen fra før. Hvis arrayen er full, skal den først utvides med så mange elementer som konstanten UTVIDELSE angir, og deretter skal kortet settes inn. >*/
   }
 
   public Klippekort ladOppKlippekort( int nr, int beløp ){
+    
+
+      return null;
+  }
+/*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr, skal metoden øke saldoen på dette kortet med så mye som parameteren beløp angir, og deretter returnere ( en referanse/peker til) klippekortet. Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
+
+
 /*    for( int i = 0; i < reisekortene.length; i++)
      if( reisekortene[i].getKortNr() == nr && reisekortene[i] instanceof Klippekort ){
        ******** FFFFFEEEEIIIIIIIIIIILLLLLLLL *******
@@ -68,19 +74,18 @@ public class ReisekortSystem
         return reisekortene[i];
       }
     */
-      return null;
-  }
-/*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr, skal metoden øke saldoen på dette kortet med så mye som parameteren beløp angir, og deretter returnere ( en referanse/peker til) klippekortet. Hvis det ikke finnes et slikt klippekort, skal metoden returnere null. >*/
 
   public static String inntjeningsInfo()
   {
+
     String print = "";
-    // int klipp = Klippekort.sumAlleKlippekort();
+    int klipp = Klippekort.sumAlleKlippekort();
     int dag = Dagskort.getSumAlleDagskort();
     int mnd = Maanedskort.getSumAlleMndkort();
-    int sum = /*klipp + */dag + mnd;
+    int sum = Klippekort.sumAlleKlippekort();
 
-    // print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
+
+    print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
     print += "Antall dagskort solgt: " + Dagskort.getAntallSolgte() + "\tfor" + dag + "kr\n";
     print += "Antall månedskort solgt: " + Maanedskort.getAntallSolgte() + "\tfor" + mnd + "kr\n";
 

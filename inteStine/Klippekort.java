@@ -23,11 +23,11 @@ public class Klippekort extends Reisekort
     return saldo;
   }
 
-  public int sumAlleKlippekort(){
+  public static int sumAlleKlippekort(){
     return sumAlleKlippekort;
   }
 
-  public int antallSolgte(){
+  public static int antallSolgte(){
     return antallSolgte;
   }
   // < get-metoder for saldo, sumAlleKlippekort og antallSolgte >

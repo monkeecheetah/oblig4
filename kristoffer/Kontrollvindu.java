@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class Kontrollvindu < ... >
+/* public class Kontrollvindu < ... > */
 {
   private JTextField kortIdFelt;
   private JTextArea display;

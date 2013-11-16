@@ -61,9 +61,9 @@ public class ReisekortSystem
     for(int i = 0; i < reisekortene.length; i++) {
       if(nr == reisekortene[i].getKortNr()) {
         if(reisekortene[i] instanceof Klippekort) {
-            Klippekort reisekortet = (Klippekort) reisekortene[i];
-            reisekortet.ladOpp(belop);
-        
+          Klippekort reisekortet = (Klippekort) reisekortene[i];
+          reisekortet.ladOpp(belop);
+            
           return reisekortet;
       }
     }

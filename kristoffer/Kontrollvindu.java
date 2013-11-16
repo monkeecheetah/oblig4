@@ -33,12 +33,36 @@ public class Kontrollvindu extends JFrame implements ActionListener{
       < setter opp brukergrensesnittet > */
   }
 
+    // for(int i = 0; i < reisekortene.length; i++) {
+    //   if(nr == reisekortene[i].getKortNr()) {
+    //     if(reisekortene[i] instanceof Klippekort) {
+    //         Klippekort reisekortet = (Klippekort) reisekortene[i];
+    //         reisekortet.ladOpp(belop);
+
   public void kontrollerReisekort(){
 
-  kortIdfelt.getText()
+  int kortNummer = kortIdfelt.getText()
 
-  er det gyldig 
+    for(int i = 0; i < kortsystem.length; i++){
+      if(kortsystem[i].getKortNr == kortNummer){
+        if( kortnummer[i].gyldig() == true ){
+          if( kortnummer[i] instanceof Klippekort){
+            Klippekort klipp = (Klippekort) kortnummer[i];
+            if(klipp.gyldig() == true );
+              display.setText( "Gjenstående saldo på klippekort " + klipp.getSaldo + "\npris pr reiser er " + PRIS_PER_REISE + "kr\nbiletten er gyldig i en time");
+          }else if( kortnummer[i] instanceof Dagskort){
+            Dagskort dag = (Dagskort) kortnummer[i];
+            if (dag.gyldig() == true )
+              
 
+          }else if( kortnummer[i] instanceof Maanedskort ){
+            Maanedskort mnd = (Maanedskort) kortnummer[i];
+
+          }
+        }
+      }
+
+    }
 /*    < Metoden må lese inn kortets nummer og sjekke om det finnes
       blandt de registrerte kortene. Hvis det finnes og det er gyldig,
       skal følgende gjøre:

@@ -18,24 +18,34 @@ public class Reisekortsalg extends JFrame
     kortsystem = k;
     lytter =  new Lytter();
 
-    kortNrFelt = new JTextField();
-    betalingsFelt = new JTextField();
-    belopsFelt = new JTextField();
+    kortNrFelt = new JTextField(12);
+    betalingsFelt = new JTextField(20);
+    belopsFelt = new JTextField(10);
     klipp = new JButton("Klippekort");
     dag = new JButton("Dagskort");
     mnd = new JButton("Månedskort");
     ladeknapp = new JButton("Ladeknapp");
     info = new JTextArea(10,30);
     Container c = getContentPane();
+    kortNrFelt.setEditable(false);    
+    betalingsFelt.setEditable(false);
     c.setLayout(new FlowLayout());
+    c.add(info);
     c.add(klipp);
     c.add(dag);
     c.add(mnd);
-    c.add(info);
-
+    c.add(new JLabel ("Beløp:"));
+    c.add(belopsFelt);
+    c.add(ladeknapp);
+    c.add(new JLabel ("Kortnr: "));
     c.add(kortNrFelt);
+    c.add(new JLabel ("Betal kr: "));
     c.add(betalingsFelt);    
-    c.add(belopsFelt);   
+    
+
+    setSize(420,800);
+    setVisible(true);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
 
     // < oppretter skjermkomponenene >
     klipp.addActionListener(lytter);
@@ -53,12 +63,16 @@ public class Reisekortsalg extends JFrame
       k = new Klippekort(belop); 
     } else if (type == DAG) {
       k = new Dagskort();
+      kortsystem.settInnReisekort(k);
+      betalingsFelt.setText(k.getPris()+".-");
+      kortNrFelt.setText(k.getKortNr()+"");  
     } else if(type == MAANED) {
       k = new Maanedskort();
+      kortsystem.settInnReisekort(k);
+      betalingsFelt.setText(k.getPris()+".-");
+      kortNrFelt.setText(k.getKortNr()+"");
     }
-    kortsystem.settInnReisekort(k);
-    betalingsFelt.setText(k.getPris()+".-");
-    kortNrFelt.setText(k.getKortNr()+"");
+    System.out.print(k.getKortNr());
 
 
 /*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.

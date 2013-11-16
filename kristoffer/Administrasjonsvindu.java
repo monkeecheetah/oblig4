@@ -17,6 +17,9 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
 		c.setLayout(new FlowLayout());
 		c.add(salgsInfo);
 		c.add(new JScrollPane(tekstFelt));
+	    setSize(420,800);
+	    setVisible(true);
+	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	private void visInfo() {

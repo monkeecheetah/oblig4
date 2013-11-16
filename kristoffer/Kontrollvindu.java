@@ -12,9 +12,9 @@ public class Kontrollvindu extends JFrame{
   public Kontrollvindu(ReisekortSystem r)
   {
     super("BILLETTKONTROLL");
-    kortIdFelt = new JTextField();
-    display = new JTextArea();
-    kontroll = new JButton();
+    kortIdFelt = new JTextField(10);
+    display = new JTextArea(10,30);
+    kontroll = new JButton("Kontroller kort");
 
     // kortsystem = new ReisekortSystem();
 
@@ -30,6 +30,10 @@ public class Kontrollvindu extends JFrame{
     c.add( kortIdFelt );
     c.add( kontroll );
     c.add( display );
+
+    setSize(420,800);
+    setVisible(true);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 /*    < oppretter lytteobjekt og knytter knappen til det. >
       < setter opp brukergrensesnittet > */

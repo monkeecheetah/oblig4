@@ -3,16 +3,16 @@ import java.util.Calendar;
 public class Maanedskort extends Reisekort
 {
 
-  public final static int MÅNEDSPRIS = 1040;
+  public final static int MAANEDSPRIS = 1040;
 
   private static int antallSolgte = 0;
   private static int sumAlleMndkort = 0;      // Det totale antall solgte klippekort
 
 
   public Maanedskort(){
-  super( MÅNEDSPRIS );
+  super( MAANEDSPRIS );
   antallSolgte ++;
-  sumAlleMndkort = ( antallSolgte * MÅNEDSPRIS );
+  sumAlleMndkort = ( antallSolgte * MAANEDSPRIS );
   }
 
   public static int sumAlleMndkort(){

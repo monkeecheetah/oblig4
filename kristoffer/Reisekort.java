@@ -14,7 +14,10 @@ public abstract class Reisekort
 
   public Reisekort( int p ){
     pris = p;
-    kortNr = nesteKortNr++;
+    System.out.print("Kortnummer = "+kortNr);
+    System.out.print("Nestekortnummer = "+nesteKortNr);
+    kortNr = nesteKortNr;
+    nesteKortNr += 1;
   }
 
   // < konstruktør som mottar prisen som parameter og som

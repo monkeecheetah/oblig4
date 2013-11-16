@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Reisekortsalg extends JFrame implements ActionListener
+public class Reisekortsalg extends JFrame
 {
   private static final int KLIPP = 1, DAG = 2, MAANED = 3;
   private JTextField kortNrFelt, betalingsFelt, belopsFelt;
@@ -47,26 +47,19 @@ public class Reisekortsalg extends JFrame implements ActionListener
 
   public void nyttReisekort(int type)
   {
-    if(type == 1) {
-      Reisekort reise = new Reisekort(getText(betalingsFelt));
-      settInnReisekort(reise);
-      reise.ladOpp(getText.belopsFelt);
-      reise.ladOpp(getText.betalingsFelt);
-      getUtlopstidspunkt();
-    } else if(type == 2) {
-      Reisekort reise = new Reisekort(getText(betalingsFelt));
-      settInnReisekort(reise);
-      reise.ladOpp(getText.betalingsFelt);
-      reise.setUtlopstidspunkt();
-      reise.getUtlopstidspunkt();
-    } else if(type == 3) {
-      Reisekort reise = new Reisekort(getText(betalingsFelt));
-      settInnReisekort(reise);
-      reise.ladOpp(getText.betalingsFelt);
-      reise.setUtlopstidspunkt();
-      reise.getUtlopstidspunkt();
+    Reisekort k = null;
+    if(type == KLIPP) {
+      int belop = Integer.parseInt(betalingsFelt.getText());
+      k = new Klippekort(belop); 
+    } else if (type == DAG) {
+      k = new Dagskort();
+    } else if(type == MAANED) {
+      k = new Maanedskort();
     }
-    
+    kortsystem.settInnReisekort(k);
+    betalingsFelt.setText(k.getPris()+".-");
+    kortNrFelt.setText(k.getKortNr()+"");
+
 
 /*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.
       (Se konstantene i skissen av klassen over.) Når kortet er opprettet og satt
@@ -76,8 +69,16 @@ public class Reisekortsalg extends JFrame implements ActionListener
 
   public void ladOppKlippekort()
   {
-    belopsFelt.getText();
+    int kortId = Integer.parseInt(kortNrFelt.getText());
+    int belop = Integer.parseInt(belopsFelt.getText());    
 
+    Klippekort k = kortsystem.ladOppKlippekort(kortId, belop);
+    if ( k != null ) {
+      betalingsFelt.setText(belop + ".-");
+      JOptionPane.showMessageDialog(null, "Ny saldo: kr." + k.getSaldo() + ".-");
+    } else {
+      betalingsFelt.setText("Error");
+    }
 /*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver
       inn, under forutsetning av at kortnummerer som oppgis tilhører et
       klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut
@@ -86,18 +87,19 @@ public class Reisekortsalg extends JFrame implements ActionListener
       skrives "error" i betalingsfeltet. > */
   }
 
-   private void actionPerformed(ActionEvent e)
-   {
-     if (e.getSource() == klipp) {
-       nyttReisekort(KLIPP);      
-     } else if(e.getSource() == dag) {
-        nyttReisekort(DAG);      
-     } else if(e.getSource() == mnd) {
-        nyttReisekort(MAANED);      
-     } else if(e.getSource() == ladeknapp) {
-        ladOppKlippekort();      
-     }
+  private class Lytter implements ActionListener {
+    public void actionPerformed(ActionEvent e) {
+      if(e.getSource() == klipp) {
+        nyttReisekort(KLIPP);
+      } else if(e.getSource() == dag) {
+        nyttReisekort(DAG);
+      } else if(e.getSource() == mnd) {
+        nyttReisekort(MAANED);
+      } else if(e.getSource() == ladeknapp) {
+        ladOppKlippekort();
+      }
 
+    }
   }
 
 /*  < privat lytteklasse > */

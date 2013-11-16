@@ -15,11 +15,11 @@ public class Maanedskort extends Reisekort
   sumAlleMndkort = ( antallSolgte * MÅNEDSPRIS );
   }
 
-  public static int getSumAlleMndkort(){
+  public static int sumAlleMndkort(){
   	return sumAlleMndkort;
   }
 
-  public static int getAntallSolgte(){
+  public static int antallSolgte(){
   	return antallSolgte;
   }
 

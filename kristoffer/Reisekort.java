@@ -5,43 +5,39 @@ public abstract class Reisekort
 {
   private Calendar utlopstidspunkt; // Blir tildelt verdi når kortet valideres
 
-  private int kortNr;
-  private int pris;
-  private int nesteKortNr;
+  private int kortNr, pris;
+  private int nesteKortNr = 1;
 
-/*
-  < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
-  < pris - hva kortet koster i hele kroner >
-  < hjelpevariabel for å generere et unikt kortNr >
-*/
+  // < kortNr - et unikt nummer som identifiserer hvert enkelt reisekort >
+  // < pris - hva kortet koster i hele kroner >
+  // < hjelpevariabel for å generere et unikt kortNr >
 
-/*
-  < konstruktør som mottar prisen som parameter og som
-    tildeler reisekortet et unikt kortNr >
-*/
-
-  public Reisekort(int p) {
+  public Reisekort( int p ){
     pris = p;
     kortNr = nesteKortNr++;
   }
 
-  abstract public void setUtlopsTidsPunkt();
+  // < konstruktør som mottar prisen som parameter og som
+  //   tildeler reisekortet et unikt kortNr >
 
-/*
-  < set-metode for utløpstidspunkt >
-*/
-  public int getKortNr() {
-    return kortNr;
-  }
+    public void setUtlopstidspunkt(){
+      utlopstidspunkt = Calendar.getInstance();
+    } 
 
-  public int getPris() {
-    return pris;
-  }
-  abstract public void getUtlopsTidsPunkt();
+    public int getKortNr(){
+      return kortNr;
+    }
 
-/*
-  < get-metoder for kortNr, pris og utløpstidspunkt >
-*/
+    public int getPris(){
+      return pris;
+    }
+
+    public Calendar getUtlopstidspunkt(){
+      return utlopstidspunkt;
+    }
+
+// < set-metode for utløpstidspunkt >
+// < get-metoder for kortNr, pris og utløpstidspunkt >
 
   public String gyldigTil()
   {
@@ -53,10 +49,9 @@ public abstract class Reisekort
 
      return tf.format(utlopstidspunkt.getTime());
   }
-
-  public boolean gyldig() // Metoden vil  bli redefinert av subklassene
-  {
-     Calendar na = Calendar.getInstance();
-     return na.before( utlopstidspunkt );
+// Metoden vil  bli redefinert av subklassene
+  public boolean gyldig() {
+     Calendar now = Calendar.getInstance();
+     return now.before( utlopstidspunkt );
   }
 }  // end of class Reisekort 

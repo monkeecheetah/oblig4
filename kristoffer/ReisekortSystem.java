@@ -85,8 +85,8 @@ public class ReisekortSystem
     int sum = klipp + dag + mnd;
 
     print += "Antall klippekort solgt: " + Klippekort.antallSolgte() + "\tfor " + klipp + "kr\n";
-    print += "Antall dagskort solgt: " + Dagskort.getAntallSolgte() + "\tfor" + dag + "kr\n";
-    print += "Antall månedskort solgt: " + Maanedskort.getAntallSolgte() + "\tfor" + mnd + "kr\n";
+    print += "Antall dagskort solgt: " + Dagskort.antallSolgte() + "\tfor" + dag + "kr\n";
+    print += "Antall månedskort solgt: " + Maanedskort.antallSolgte() + "\tfor" + mnd + "kr\n";
 
     print += "Sammenlagt sum " + sum +"kr";
 

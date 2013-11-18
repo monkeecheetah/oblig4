@@ -8,10 +8,10 @@ public class Klippekort extends Reisekort
   private static int antallSolgte = 0;      // Det totale antall solgte klippekort
   private static int sumAlleKlippekort = 0; // Den totale summen som er satt inn
                                             // på alle klippekortene til sammen.
-  public Klippekort( int s ){
-    super( PRIS_PER_REISE );
-    saldo = PRIS_PER_REISE;
-    sumAlleKlippekort += PRIS_PER_REISE;    
+  public Klippekort( int s ) {
+    super( s );
+    saldo = s;
+    sumAlleKlippekort += s;    
     antallSolgte++;
   }
 

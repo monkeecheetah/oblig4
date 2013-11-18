@@ -18,23 +18,15 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
 		c.add(salgsInfo);
 		c.add(new JScrollPane(tekstFelt));
 	    setSize(420,800);
+	   
 	    setVisible(true);
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void visInfo() {
-		tekstFelt.setText(ReisekortSystem.inntjeningsInfo());
-
-	} 
-
    public void actionPerformed(ActionEvent e)
    {
-     if (e.getSource() == salgsInfo)
-       visInfo();
+ 		tekstFelt.setText(ReisekortSystem.inntjeningsInfo());
 	}
-
-
-
 }
 
 // a) Programmer vindusklassen Administrasjonsvindu, slik at vinduet blir seende ut som på bildet. Klassen skal være sin egen lytteklasse og programmeres slik at når du klikker på knappen "Salgsinformasjon" blir den informasjonen som returneres fra inntjeningsInfo()-metoden i klassen ReisekortSystem vist i tekstområdet. 

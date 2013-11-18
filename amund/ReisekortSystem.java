@@ -1,3 +1,5 @@
+//Student: Amund Ring, Studentnr: 193379, Klasse: HINGDATA13H1AA
+
 public class ReisekortSystem
 {
     public static final int ANTALL = 100;

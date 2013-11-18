@@ -1,3 +1,5 @@
+//Student: Amund Ring, Studentnr: 193379, Klasse: HINGDATA13H1AA
+
 import java.util.Calendar;
 
 public class Klippekort extends Reisekort
@@ -44,6 +46,9 @@ public class Klippekort extends Reisekort
         else if (saldo >= PRIS_PER_REISE)
         {
             saldo -= PRIS_PER_REISE;
+            Calendar gyldigTil = Calendar.getInstance();
+            gyldigTil.add( Calendar.HOUR_OF_DAY, 1 );
+            super.setUtløpstidspunkt(gyldigTil);
             return true;
         }
         else

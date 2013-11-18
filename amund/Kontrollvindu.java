@@ -1,3 +1,5 @@
+//Student: Amund Ring, Studentnr: 193379, Klasse: HINGDATA13H1AA
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;

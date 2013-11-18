@@ -1,3 +1,5 @@
+//Student: Amund Ring, Studentnr: 193379, Klasse: HINGDATA13H1AA
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -67,7 +69,7 @@ public class Reisekortsalg extends JFrame
 						klippekortet.setUtløpstidspunkt(gyldigTil);
 						kortsystem.settInnReisekort(klippekortet);
 						kortNrFelt.setText( "" + klippekortet.getKortNr() );
-						betalingsFelt.setText( "" + innskudd );
+						betalingsFelt.setText( "" + innskudd + ",-");
 						break;
 
 			case DAG:	Dagskort dagskortet = new Dagskort();
@@ -76,7 +78,7 @@ public class Reisekortsalg extends JFrame
 						dagskortet.setUtløpstidspunkt(gyldigTil);
 						kortsystem.settInnReisekort(dagskortet);
 						kortNrFelt.setText( "" + dagskortet.getKortNr() );
-						betalingsFelt.setText( "" + dagskortet.getPris() );
+						betalingsFelt.setText( "" + dagskortet.getPris() + ",-");
 						break;
 
 			case MÅNED:	Maanedskort månedskortet = new Maanedskort();
@@ -85,7 +87,7 @@ public class Reisekortsalg extends JFrame
 						månedskortet.setUtløpstidspunkt(gyldigTil);
 						kortsystem.settInnReisekort(månedskortet);
 						kortNrFelt.setText( "" + månedskortet.getKortNr() );
-						betalingsFelt.setText( "" + månedskortet.getPris() );
+						betalingsFelt.setText( "" + månedskortet.getPris() + ",-");
 						break;
 		}
 	} //end of nyttReisekort(int type)

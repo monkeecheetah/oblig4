@@ -71,8 +71,6 @@ public class Reisekortsalg extends JFrame
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");
     }
-    System.out.print(k.getKortNr());
-
 
 /*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.
       (Se konstantene i skissen av klassen over.) Når kortet er opprettet og satt
@@ -84,7 +82,7 @@ public class Reisekortsalg extends JFrame
   {
     int kortId = Integer.parseInt(kortNrFelt.getText());
     int belop = Integer.parseInt(belopsFelt.getText());    
-
+    System.out.println("kortId"+kortId);
     Klippekort k = kortsystem.ladOppKlippekort(kortId, belop);
     if ( k != null) {
       betalingsFelt.setText(belop + ".-");

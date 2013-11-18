@@ -75,8 +75,8 @@ public class ReisekortSystem
   */
   
   Reisekort k = finnReisekort( nr );
-
   if(k instanceof Klippekort) {
+    System.out.println("Den er instance of klippekort");
     ((Klippekort) k).ladOpp(belop);
     return (Klippekort) k;
   } else {

@@ -60,7 +60,7 @@ public class Klippekort extends Reisekort
 
   public void ladOpp( int belop ){
     saldo += belop;
-    sumAlleKlippekort ++;
+    sumAlleKlippekort += belop;
     // < Metoden over skal øke saldoen på kortet med det beløpet som
     //   parameteren angir og oppdatere datafeltet sumAlleKlippekort.  >
   }

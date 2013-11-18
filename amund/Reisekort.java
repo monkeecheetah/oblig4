@@ -1,4 +1,4 @@
-//Student: Amund Ring, Studentnr: 193379, Klasse: HINGDATA13H1AA
+
 
 import java.util.Calendar;
 import java.text.DateFormat;

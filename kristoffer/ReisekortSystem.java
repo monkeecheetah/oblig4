@@ -17,8 +17,11 @@ public class ReisekortSystem
   {
 
     for(int i = 0; i < reisekortene.length; i++) {
-      if(reisekortene[i] != null && reisekortene[i].getKortNr() == nr) {
-        return reisekortene[i];
+      if(reisekortene[i] != null) {
+          System.out.print("Its okay");
+        if(reisekortene[i].getKortNr() == nr) {
+          return reisekortene[i];          
+        }
       }
     }
     return null;

@@ -86,7 +86,7 @@ public class Reisekortsalg extends JFrame
     int belop = Integer.parseInt(belopsFelt.getText());    
 
     Klippekort k = kortsystem.ladOppKlippekort(kortId, belop);
-    if ( k != null ) {
+    if ( k != null) {
       betalingsFelt.setText(belop + ".-");
       JOptionPane.showMessageDialog(null, "Ny saldo: kr." + k.getSaldo() + ".-");
     } else {

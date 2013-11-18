@@ -17,7 +17,7 @@ public class ReisekortSystem
   {
 
     for(int i = 0; i < reisekortene.length; i++) {
-      if(nr == reisekortene[i].getKortNr()) {
+      if(reisekortene[i] != null && reisekortene[i].getKortNr() == nr) {
         return reisekortene[i];
       }
     }
@@ -58,7 +58,7 @@ public class ReisekortSystem
   public Klippekort ladOppKlippekort( int nr, int belop )
   {
 
-    for(int i = 0; i < reisekortene.length; i++) {
+/*    for(int i = 0; i < reisekortene.length; i++) {
       if(nr == reisekortene[i].getKortNr()) {
         if(reisekortene[i] instanceof Klippekort) {
           Klippekort reisekortet = (Klippekort) reisekortene[i];
@@ -69,7 +69,16 @@ public class ReisekortSystem
     }
   }
   return null;
+  */
+  
+  Reisekort k = finnReisekort( nr );
 
+  if(k instanceof Klippekort) {
+    ((Klippekort) k).ladOpp(belop);
+    return (Klippekort) k;
+  } else {
+    return null;
+  }
 /*    < Hvis det finnes et klippekort med kortNr lik den innkomne parameteren nr,
       skal metoden øke saldoen på dette kortet med så mye som parameteren
       beløp angir, og deretter returnere (en referanse/peker til) klippekortet.

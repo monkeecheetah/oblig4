@@ -21,7 +21,7 @@ public abstract class Reisekort
   //   tildeler reisekortet et unikt kortNr >
 
     public void setUtlopstidspunkt(Calendar c){
-      utløpsdato = c;
+      utlopstidspunkt = c;
     } 
 
     public int getKortNr(){

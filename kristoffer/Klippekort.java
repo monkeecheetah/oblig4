@@ -10,8 +10,8 @@ public class Klippekort extends Reisekort
                                             // på alle klippekortene til sammen.
   public Klippekort( int s ){
     super( PRIS_PER_REISE );
-    saldo = belop;
-    sumAlleKlippekort += belop;    
+    saldo = PRIS_PER_REISE;
+    sumAlleKlippekort += PRIS_PER_REISE;    
     antallSolgte++;
   }
 
@@ -41,11 +41,11 @@ public class Klippekort extends Reisekort
       sjekk = true;
     }
     else if(saldo >= PRIS_PER_REISE){
+//      super.setUtlopstidspunkt("klippekort");
       Calendar dato = Calendar.getInstance();
       dato.add(Calendar.HOUR_OF_DAY, 1);
-      setUtlopstidspunkt(data);
+      setUtlopstidspunkt(dato);
       saldo -= PRIS_PER_REISE;
-      super.setUtlopstidspunkt("klippekort");
       sjekk = true;
     }
     return sjekk;

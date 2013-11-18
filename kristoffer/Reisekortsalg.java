@@ -58,7 +58,7 @@ public class Reisekortsalg extends JFrame
   {
     Reisekort k = null;
     if(type == KLIPP) {
-      int belop = Integer.parseInt(betalingsFelt.getText());
+      int belop = Integer.parseInt(belopsFelt.getText());
       k = new Klippekort(belop); 
     } else if (type == DAG) {
       k = new Dagskort();

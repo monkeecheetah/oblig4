@@ -18,16 +18,15 @@ public class Reisekortsalg extends JFrame
     kortsystem = k;
     lytter =  new Lytter();
 
-    kortNrFelt = new JTextField(12);
-    betalingsFelt = new JTextField(20);
-    belopsFelt = new JTextField(10);
+    kortNrFelt = new JTextField(15);
+    betalingsFelt = new JTextField(15);
+    belopsFelt = new JTextField(15);
     klipp = new JButton("Klippekort");
     dag = new JButton("Dagskort");
     mnd = new JButton("Månedskort");
     ladeknapp = new JButton("Ladeknapp");
     info = new JTextArea(10,30);
     Container c = getContentPane();
-    kortNrFelt.setEditable(false);    
     betalingsFelt.setEditable(false);
     c.setLayout(new FlowLayout());
     c.add(info);
@@ -43,7 +42,7 @@ public class Reisekortsalg extends JFrame
     c.add(betalingsFelt);    
     
 
-    setSize(420,800);
+    setSize(400,400);
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
 

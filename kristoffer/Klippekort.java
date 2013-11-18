@@ -10,9 +10,9 @@ public class Klippekort extends Reisekort
                                             // på alle klippekortene til sammen.
   public Klippekort( int s ){
     super( PRIS_PER_REISE );
-    saldo = s;
+    saldo = belop;
+    sumAlleKlippekort += belop;    
     antallSolgte++;
-    sumAlleKlippekort = (antallSolgte * PRIS_PER_REISE);
   }
 
 /*  < Konstruktør som mottar det beløpet som skal settes inn på kortet
@@ -35,17 +35,20 @@ public class Klippekort extends Reisekort
 
   // Blir redefinert her!
   public boolean gyldig(){
-   boolean sjekk = super.gyldig();
+   boolean sjekk = false;
 
-   if(sjekk == true){
-      return sjekk;
+   if(super.gyldig()  ){
+      sjekk = true;
     }
-    else if(saldo > PRIS_PER_REISE){
+    else if(saldo >= PRIS_PER_REISE){
+      Calendar dato = Calendar.getInstance();
+      dato.add(Calendar.HOUR_OF_DAY, 1);
+      setUtlopstidspunkt(data);
       saldo -= PRIS_PER_REISE;
       super.setUtlopstidspunkt("klippekort");
-      return true;
+      sjekk = true;
     }
-    return false;
+    return sjekk;
 /*    < Metoden kalles hver gang man skal foreta en reise med klippekortet.
       Kortet er gyldig hvis det brukes innen utløpstidspunktet. (Det er gyldig
       i en time etter at man har betalt.) Hvis kortet brukes etter

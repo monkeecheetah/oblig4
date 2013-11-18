@@ -31,7 +31,7 @@ public class Kontrollvindu extends JFrame{
     c.add( kontroll );
     c.add( display );
 
-    setSize(420,800);
+    setSize(400,400);
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

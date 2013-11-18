@@ -64,7 +64,6 @@ public class Reisekortsalg extends JFrame
 						beløpsFelt.setText("");
 						Klippekort klippekortet = new Klippekort(innskudd);
 						gyldigTil = Calendar.getInstance();
-						gyldigTil.add( Calendar.HOUR_OF_DAY, 1 );
 						klippekortet.setUtløpstidspunkt(gyldigTil);
 						kortsystem.settInnReisekort(klippekortet);
 						kortNrFelt.setText( "" + klippekortet.getKortNr() );

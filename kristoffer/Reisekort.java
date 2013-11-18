@@ -14,24 +14,14 @@ public abstract class Reisekort
 
   public Reisekort( int p ){
     pris = p;
-    System.out.print("Kortnummer = "+kortNr);
-    System.out.print("Nestekortnummer = "+nesteKortNr);
-    kortNr = nesteKortNr;
-    nesteKortNr += 1;
+    kortNr = nesteKortNr++;
   }
 
   // < konstruktør som mottar prisen som parameter og som
   //   tildeler reisekortet et unikt kortNr >
 
-    public void setUtlopstidspunkt(String kortType){
-      Calendar utlopstidspunkt = Calendar.getInstance();
-      if(kortType.equals("klippekort")) {
-        utlopstidspunkt.add(Calendar.HOUR_OF_DAY, 1);
-      } else if (kortType.equals("manedskort")) {
-        utlopstidspunkt.add(Calendar.DAY_OF_MONTH, 30);
-      } else if (kortType.equals("dagskort")) {
-        utlopstidspunkt.add(Calendar.DAY_OF_MONTH, 1);
-      }
+    public void setUtlopstidspunkt(Calendar c){
+      utløpsdato = c;
     } 
 
     public int getKortNr(){

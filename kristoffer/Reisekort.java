@@ -41,6 +41,7 @@ public abstract class Reisekort
 
   public String gyldigTil()
   {
+    System.out.println(utlopstidspunkt);
      if ( utlopstidspunkt == null )
        return null;
 

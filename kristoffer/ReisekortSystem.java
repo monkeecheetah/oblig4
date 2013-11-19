@@ -15,12 +15,9 @@ public class ReisekortSystem
 
   public Reisekort finnReisekort(int nr)
   {
-    System.out.println("Den er i reisekort");
     for(int i = 0; i < reisekortene.length; i++) {
       if(reisekortene[i] != null) {
-          System.out.print("Its okay");
         if(reisekortene[i].getKortNr() == nr) {
-          System.out.println("Just purfect");
           return reisekortene[i]; 
         }
       }

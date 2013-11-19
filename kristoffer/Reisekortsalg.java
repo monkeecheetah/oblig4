@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Calendar;
 
 public class Reisekortsalg extends JFrame
 {
@@ -63,16 +64,26 @@ public class Reisekortsalg extends JFrame
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");  
+      Calendar gyldig = Calendar.getInstance();
+      gyldig.add( Calendar.HOUR_OF_DAY, 1 );
+      k.setUtlopstidspunkt(gyldig);
     } else if (type == DAG) {
       k = new Dagskort();
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");  
+      Calendar gyldig = Calendar.getInstance();
+      gyldig.add( Calendar.DAY_OF_YEAR, 1 );
+      k.setUtlopstidspunkt(gyldig);
     } else if(type == MAANED) {
       k = new Maanedskort();
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");
+      Calendar gyldig = Calendar.getInstance();
+      gyldig.add( Calendar.DAY_OF_YEAR, 30 );
+      System.out.println(gyldig);
+      k.setUtlopstidspunkt(gyldig);
     }
 
 /*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.

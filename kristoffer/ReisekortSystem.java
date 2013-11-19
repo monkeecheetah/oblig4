@@ -1,6 +1,6 @@
 public class ReisekortSystem
 {
-  public static final int ANTALL = 100;
+  public static final int ANTALL = 10;
   public static final int UTVIDELSE = 10;
   private Reisekort[] reisekortene;
 
@@ -15,12 +15,13 @@ public class ReisekortSystem
 
   public Reisekort finnReisekort(int nr)
   {
-
+    System.out.println("Den er i reisekort");
     for(int i = 0; i < reisekortene.length; i++) {
       if(reisekortene[i] != null) {
           System.out.print("Its okay");
         if(reisekortene[i].getKortNr() == nr) {
-          return reisekortene[i];          
+          System.out.println("Just purfect");
+          return reisekortene[i]; 
         }
       }
     }
@@ -34,34 +35,38 @@ public class ReisekortSystem
 
   public void utvidArray()
   {
-  
-    Reisekort[] kopi = reisekortene;
+    Reisekort[] kopi = new Reisekort[reisekortene.length + UTVIDELSE];
 
-    Reisekort[] reisekortene = new Reisekort[kopi.length + UTVIDELSE];
-
-    for(int i = 0; i < kopi.length; i++) {
-      reisekortene[i] = kopi[i];
+    for(int i = 0; i < reisekortene.length; i++) {
+      kopi[i] = reisekortene[i];
     }
-
+    reisekortene = kopi;
 /*    < Metoden skal utvide arrayen med så mange elementer som konstanten UTVIDELSE angir. Metoden vil bli kalt når det er behov for å utvide arrayen i forbindelse med innsetting av et nytt reisekort. >*/
 
   }
 
   public void settInnReisekort(Reisekort k)
   {
-    for (int i = 0; i < reisekortene.length; i++) {
-      if(reisekortene[i] != null) {
-        reisekortene[i] = k;
-      }
+        if( finnReisekort(k.getKortNr() ) != null )
+            return;
+
+        for (int i = 0; i < reisekortene.length; i++){
+            if (reisekortene[i] == null){
+                reisekortene[i] = k;
+                return;
+            }
+        }
+        utvidArray();
+        settInnReisekort(k);
     }
 
 /*    < Metoden mottar et nytt reisekort som parameter og skal sette dette inn på første ledige plass i arrayen, under forutsetning av at det ikke finnes et reisekort med samme nr i arrayen fra før. Hvis arrayen er full, skal den først utvides med så mange elementer som konstanten UTVIDELSE angir, og deretter skal kortet settes inn. >*/
-  }
 
   public Klippekort ladOppKlippekort( int nr, int belop )
   {
 
-/*    for(int i = 0; i < reisekortene.length; i++) {
+/*    
+  for(int i = 0; i < reisekortene.length; i++) {
       if(nr == reisekortene[i].getKortNr()) {
         if(reisekortene[i] instanceof Klippekort) {
           Klippekort reisekortet = (Klippekort) reisekortene[i];
@@ -73,10 +78,8 @@ public class ReisekortSystem
   }
   return null;
   */
-  
   Reisekort k = finnReisekort( nr );
   if(k instanceof Klippekort) {
-    System.out.println("Den er instance of klippekort");
     ((Klippekort) k).ladOpp(belop);
     return (Klippekort) k;
   } else {

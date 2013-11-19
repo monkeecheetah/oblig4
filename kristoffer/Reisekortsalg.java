@@ -60,6 +60,9 @@ public class Reisekortsalg extends JFrame
     if(type == KLIPP) {
       int belop = Integer.parseInt(belopsFelt.getText());
       k = new Klippekort(belop); 
+      kortsystem.settInnReisekort(k);
+      betalingsFelt.setText(k.getPris()+".-");
+      kortNrFelt.setText(k.getKortNr()+"");  
     } else if (type == DAG) {
       k = new Dagskort();
       kortsystem.settInnReisekort(k);
@@ -84,6 +87,7 @@ public class Reisekortsalg extends JFrame
     int belop = Integer.parseInt(belopsFelt.getText());    
     System.out.println("kortId"+kortId);
     Klippekort k = kortsystem.ladOppKlippekort(kortId, belop);
+    System.out.println("Her er k som tydeligvis ikke er noenting og det faensteike mæ feil!!!! "+k);
     if ( k != null) {
       betalingsFelt.setText(belop + ".-");
       JOptionPane.showMessageDialog(null, "Ny saldo: kr." + k.getSaldo() + ".-");

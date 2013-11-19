@@ -21,7 +21,7 @@ public class Kontrollvindu extends JFrame{
 /*    < kaller superklassens konstruktør > */
 
     kortsystem = r;
-
+    Lytter lytter = new Lytter();
     kontroll.addActionListener( lytter );
 
     Container c = getContentPane();
@@ -45,14 +45,14 @@ public class Kontrollvindu extends JFrame{
     //         Klippekort reisekortet = (Klippekort) reisekortene[i];
     //         reisekortet.ladOpp(belop);
 
-  public void kontrollerReisekort(){
+  public void kontrollerReisekort() {
 
     int kortNummer = Integer.parseInt(kortIdFelt.getText());
 
     Reisekort k = kortsystem.finnReisekort(kortNummer);
 
     display.setText("");
-
+    System.out.println("kortsystem drifter");
     if(k == null) {
       display.setText("Kortet finnes ikke");
       return;
@@ -61,11 +61,14 @@ public class Kontrollvindu extends JFrame{
       if(k instanceof Klippekort) {
         display.append("Betalt kr." + Klippekort.PRIS_PER_REISE+".-");
         display.append("Saldo: kr." + ((Klippekort) k).getSaldo() + ".-");
-        display.append("Gyldig til " + k.gyldigTil());
       }
-    }
-
-
+        display.append("Gyldig til " + k.gyldigTil());
+      } else {
+        display.setText("Ugyldig billett, kjøp ny (moskus) ");
+      } if(k instanceof Klippekort) {
+        display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-");
+      }
+      kortIdFelt.setText("");
     }
 /*    < Metoden må lese inn kortets nummer og sjekke om det finnes
       blandt de registrerte kortene. Hvis det finnes og det er gyldig,
@@ -87,6 +90,7 @@ public class Kontrollvindu extends JFrame{
 
   private class Lytter implements ActionListener {
     public void actionPerformed(ActionEvent e) {
+      System.out.println("DU TRØKKA PÅ KONTROLL");
     if ( e.getSource() == kontroll )
       kontrollerReisekort();
     }

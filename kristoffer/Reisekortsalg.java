@@ -64,9 +64,9 @@ public class Reisekortsalg extends JFrame
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");  
-      Calendar gyldig = Calendar.getInstance();
-      gyldig.add( Calendar.HOUR_OF_DAY, 1 );
-      k.setUtlopstidspunkt(gyldig);
+      // Calendar gyldig = Calendar.getInstance();
+      // gyldig.add( Calendar.HOUR_OF_DAY, 1 );
+      // k.setUtlopstidspunkt(gyldig);
     } else if (type == DAG) {
       k = new Dagskort();
       kortsystem.settInnReisekort(k);

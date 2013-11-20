@@ -36,7 +36,9 @@ public class Klippekort extends Reisekort
   // Blir redefinert her!
   public boolean gyldig(){
    boolean sjekk = false;
-
+   System.out.println("Saldo før trekk"+saldo);
+   System.out.println(saldo);
+   System.out.println("Supergyldig"+super.gyldig());
    if(super.gyldig()  ){
       sjekk = true;
     }
@@ -45,10 +47,14 @@ public class Klippekort extends Reisekort
       Calendar dato = Calendar.getInstance();
       dato.add(Calendar.HOUR_OF_DAY, 1);
       setUtlopstidspunkt(dato);
+      System.out.print("Saldo før"+saldo);
       saldo -= PRIS_PER_REISE;
       sjekk = true;
+      System.out.print("Saldo etter"+saldo);
+      return sjekk;      
     }
-    return sjekk;
+    return false;
+
 /*    < Metoden kalles hver gang man skal foreta en reise med klippekortet.
       Kortet er gyldig hvis det brukes innen utløpstidspunktet. (Det er gyldig
       i en time etter at man har betalt.) Hvis kortet brukes etter

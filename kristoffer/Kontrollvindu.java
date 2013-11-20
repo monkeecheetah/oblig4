@@ -66,7 +66,7 @@ public class Kontrollvindu extends JFrame{
       } else {
         display.setText("Ugyldig billett, kjøp ny (moskus) ");
       } if(k instanceof Klippekort) {
-        display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-");
+        display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-\n");
       }
       kortIdFelt.setText("");
     }

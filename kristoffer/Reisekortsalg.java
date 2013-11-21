@@ -64,9 +64,6 @@ public class Reisekortsalg extends JFrame
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
       kortNrFelt.setText(k.getKortNr()+"");  
-      // Calendar gyldig = Calendar.getInstance();
-      // gyldig.add( Calendar.HOUR_OF_DAY, 1 );
-      // k.setUtlopstidspunkt(gyldig);
     } else if (type == DAG) {
       k = new Dagskort();
       kortsystem.settInnReisekort(k);
@@ -96,21 +93,14 @@ public class Reisekortsalg extends JFrame
   {
     int kortId = Integer.parseInt(kortNrFelt.getText());
     int belop = Integer.parseInt(belopsFelt.getText());    
-    System.out.println("kortId"+kortId);
     Klippekort k = kortsystem.ladOppKlippekort(kortId, belop);
-    System.out.println("Her er k som tydeligvis ikke er noenting og det faensteike mæ feil!!!! "+k);
     if ( k != null) {
       betalingsFelt.setText(belop + ".-");
       JOptionPane.showMessageDialog(null, "Ny saldo: kr." + k.getSaldo() + ".-");
     } else {
       betalingsFelt.setText("Error");
     }
-/*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver
-      inn, under forutsetning av at kortnummerer som oppgis tilhører et
-      klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut
-      i et dialogvindu (JOptionPane.showMessageDialog(..)), og prisen som skal
-      betales skrives i betalingsfeltet. Hvis kortnummeret er feil skal det
-      skrives "error" i betalingsfeltet. > */
+/*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver inn, under forutsetning av at kortnummerer som oppgis tilhører et klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut i et dialogvindu (JOptionPane.showMessageDialog(..)), og prisen som skal betales skrives i betalingsfeltet. Hvis kortnummeret er feil skal det skrives "error" i betalingsfeltet. > */
   }
 
   private class Lytter implements ActionListener {

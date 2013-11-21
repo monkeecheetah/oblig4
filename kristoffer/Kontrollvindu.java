@@ -59,14 +59,14 @@ public class Kontrollvindu extends JFrame{
     }
     if (k.gyldig()) {
       if(k instanceof Klippekort) {
-        display.append("Betalt kr." + Klippekort.PRIS_PER_REISE+".-");
-        display.append("Saldo: kr." + ((Klippekort) k).getSaldo() + ".-");
+        display.append("Betalt kr." + Klippekort.PRIS_PER_REISE+".-\n");
+        display.append("Saldo: kr." + ((Klippekort) k).getSaldo() + ".-\n");
       }
-        display.append("Gyldig til " + k.gyldigTil());
+        display.append("Gyldig til " + k.gyldigTil() +"\n");
       } else {
         display.setText("Ugyldig billett, kjøp ny (moskus) ");
-      } if(k instanceof Klippekort) {
-        display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-\n");
+      // } if(k instanceof Klippekort) {
+      //   display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-\n");
       }
       kortIdFelt.setText("");
     }
@@ -90,7 +90,6 @@ public class Kontrollvindu extends JFrame{
 
   private class Lytter implements ActionListener {
     public void actionPerformed(ActionEvent e) {
-      System.out.println("DU TRØKKA PÅ KONTROLL");
     if ( e.getSource() == kontroll )
       kontrollerReisekort();
     }

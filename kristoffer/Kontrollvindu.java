@@ -1,3 +1,9 @@
+/*
+Oblig 4 for 
+Stine Marie Aas Grumheden s193467 og 
+Kristoffer Johansen s193370
+*/
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -62,11 +68,11 @@ public class Kontrollvindu extends JFrame{
         display.append("Betalt kr." + Klippekort.PRIS_PER_REISE+".-\n");
         display.append("Saldo: kr." + ((Klippekort) k).getSaldo() + ".-\n");
       }
-        display.append("Gyldig til " + k.gyldigTil() +"\n");
+        display.append("Gyldig til " + k.gyldigTil() +"");
       } else {
         display.setText("Ugyldig billett, kjøp ny (moskus) ");
-      // } if(k instanceof Klippekort) {
-      //   display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-\n");
+      } if(k instanceof Klippekort) {
+        display.append("Saldo: kr. "+((Klippekort) k).getSaldo() + ".-\n");
       }
       kortIdFelt.setText("");
     }

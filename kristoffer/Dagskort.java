@@ -1,3 +1,9 @@
+/*
+Oblig 4 for 
+Stine Marie Aas Grumheden s193467 og 
+Kristoffer Johansen s193370
+*/
+
 public class Dagskort extends Reisekort
 {
   public final static int DAGSPRIS = 75;

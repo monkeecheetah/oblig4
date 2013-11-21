@@ -1,3 +1,8 @@
+/*
+Oblig 4 for 
+Stine Marie Aas Grumheden s193467 og 
+Kristoffer Johansen s193370
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -28,5 +33,3 @@ public class Administrasjonsvindu extends JFrame implements ActionListener {
  		tekstFelt.setText(ReisekortSystem.inntjeningsInfo());
 	}
 }
-
-// a) Programmer vindusklassen Administrasjonsvindu, slik at vinduet blir seende ut som på bildet. Klassen skal være sin egen lytteklasse og programmeres slik at når du klikker på knappen "Salgsinformasjon" blir den informasjonen som returneres fra inntjeningsInfo()-metoden i klassen ReisekortSystem vist i tekstområdet. 

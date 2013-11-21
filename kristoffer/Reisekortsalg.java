@@ -1,4 +1,8 @@
-/*< import-setninger >*/
+/*
+Oblig 4 for 
+Stine Marie Aas Grumheden s193467 og 
+Kristoffer Johansen s193370
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -42,17 +46,18 @@ public class Reisekortsalg extends JFrame
     c.add(new JLabel ("Betal kr: "));
     c.add(betalingsFelt);    
     
+    info.setText("Klippekort:\tkr.28.- klipp\n"
+                +"Dagskort:\tkr. 15.-\n" 
+                +"Månedskort:\tkr. 1040,-");
 
     setSize(400,400);
     setVisible(true);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
 
-    // < oppretter skjermkomponenene >
     klipp.addActionListener(lytter);
     dag.addActionListener(lytter);
     mnd.addActionListener(lytter);
     ladeknapp.addActionListener( lytter );
-    // < setter opp brukergrensesnittet. >
   }
 
   public void nyttReisekort(int type)
@@ -63,7 +68,7 @@ public class Reisekortsalg extends JFrame
       k = new Klippekort(belop); 
       kortsystem.settInnReisekort(k);
       betalingsFelt.setText(k.getPris()+".-");
-      kortNrFelt.setText(k.getKortNr()+"");  
+      kortNrFelt.setText(k.getKortNr()+"");
     } else if (type == DAG) {
       k = new Dagskort();
       kortsystem.settInnReisekort(k);
@@ -72,6 +77,7 @@ public class Reisekortsalg extends JFrame
       Calendar gyldig = Calendar.getInstance();
       gyldig.add( Calendar.DAY_OF_YEAR, 1 );
       k.setUtlopstidspunkt(gyldig);
+
     } else if(type == MAANED) {
       k = new Maanedskort();
       kortsystem.settInnReisekort(k);
@@ -80,13 +86,8 @@ public class Reisekortsalg extends JFrame
       Calendar gyldig = Calendar.getInstance();
       gyldig.add( Calendar.DAY_OF_YEAR, 30 );
       System.out.println(gyldig);
-      k.setUtlopstidspunkt(gyldig);
+      k.setUtlopstidspunkt(gyldig); 
     }
-
-/*    < Metoden skal foreta et salg av et reisekort av typen parameteren type angir.
-      (Se konstantene i skissen av klassen over.) Når kortet er opprettet og satt
-      inn i datasystemet, skal metoden skrive ut kortets nummer i tekstfeltet
-      kortNrFelt og prisen som skal betales i tekstfeltet betalingsFelt. >*/
   }
 
   public void ladOppKlippekort()
@@ -100,7 +101,6 @@ public class Reisekortsalg extends JFrame
     } else {
       betalingsFelt.setText("Error");
     }
-/*    < Metoden skal lade opp klippekortet med det beløpet som brukeren skriver inn, under forutsetning av at kortnummerer som oppgis tilhører et klippekort i datasystemet. I så fall  skal den nye saldoen skrives ut i et dialogvindu (JOptionPane.showMessageDialog(..)), og prisen som skal betales skrives i betalingsfeltet. Hvis kortnummeret er feil skal det skrives "error" i betalingsfeltet. > */
   }
 
   private class Lytter implements ActionListener {
@@ -114,10 +114,7 @@ public class Reisekortsalg extends JFrame
       } else if(e.getSource() == ladeknapp) {
         ladOppKlippekort();
       }
-
     }
   }
-
-/*  < privat lytteklasse > */
 
 } // end of class Reisekortsalg

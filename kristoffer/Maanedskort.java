@@ -1,3 +1,9 @@
+/*
+Oblig 4 for 
+Stine Marie Aas Grumheden s193467 og 
+Kristoffer Johansen s193370
+*/
+
 import java.util.Calendar;
 
 public class Maanedskort extends Reisekort
